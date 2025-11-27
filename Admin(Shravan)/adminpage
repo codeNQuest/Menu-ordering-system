@@ -3,5 +3,8 @@
     <title>Admin Page</title>
     <link rel="stylesheet" type="text/css" href="adminstyle.css">
 </head>
-<body></body>
+<body bgcolor="#C7D6A5">
+    <h1>Ad</h1>
+    <p>Use the navigation menu to manage the system.</p>
+</body>
 </html>
