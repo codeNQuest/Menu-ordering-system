@@ -1,11 +1,106 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Admin Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
     <link rel="stylesheet" type="text/css" href="adminstyle.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: none;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .login-container {
+            background: white;
+            border-radius: 15px;
+            border: #171718 2px solid;
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+       
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #57595ad8;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #141414;
+            box-shadow: 5 5 5px rgba(23, 23, 24, 0.3);
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 200;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 30px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(172, 175, 189, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body bgcolor="#C7D6A5">
-    <h1>hello Bye</h1>
-    <p>Use the navigation menu to manage the system.</p>
-    
+<body>
+    <div class="login-container">
+        <h1>Admin Login</h1>
+        <form>
+            <div class="form-group">
+                <label for="adminname">Admin</label>
+                <input type="text" id="adminname" placeholder="Enter username" name="adminname" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter Password" name="password" required>
+            </div>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>
