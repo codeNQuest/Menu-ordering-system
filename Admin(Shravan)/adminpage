@@ -22,7 +22,7 @@
         }
         
         .login-container {
-            background: white;
+            background: rgb(235, 243, 233);
             border-radius: 15px;
             border: #171718 2px solid;
             width: 100%;
@@ -50,7 +50,7 @@
             width: 100%;
             padding: 12px;
             border: 2px solid #57595ad8;
-            border-radius: 5px;
+            border-radius: 10px;
             font-size: 14px;
             transition: border-color 0.3s;
         }
@@ -88,7 +88,7 @@
 <body>
     <div class="login-container">
         <h1>Admin Login</h1>
-        <form>
+        <form action="/adminpage" method="post">
             <div class="form-group">
                 <label for="adminname">Admin</label>
                 <input type="text" id="adminname" placeholder="Enter username" name="adminname" required>
@@ -96,11 +96,12 @@
             
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter Password" name="password" required>
+                <input  type="password" id="password" placeholder="Enter Password" name="password" required>
             </div>
-            
-            <button type="submit">Login</button>
+           
+            <button type="button" onclick="window.location.href='user_input.html'">Login</button>
         </form>
     </div>
+   
 </body>
 </html>
