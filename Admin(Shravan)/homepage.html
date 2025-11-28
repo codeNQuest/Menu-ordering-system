@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisiTrack - Visitor Management System</title>
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --bg-soft: #111827;
+            --card: #1f2937;
+            --accent: #3b82f6;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 50px;
+            background: var(--bg-soft);
+            border-bottom: 1px solid rgba(148,163,184,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 48px;
+            border-radius: 8px;
+        }
+
+        .logo span {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 18px;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .btn-login {
+            padding: 10px 20px;
+            background: var(--accent);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .btn-login:hover {
+            background: #2563eb;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 130px 50px;
+            background: linear-gradient(135deg, #0a1a35, #1e3a8a);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            font-weight: 700;
+        }
+
+        .hero-text span {
+            color: #38bdf8;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            margin-top: 14px;
+            color: var(--muted);
+        }
+
+        .btn-start {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: var(--accent);
+            color: white;
+            border-radius: 12px;
+            font-size: 20px;
+            text-decoration: none;
+            transition: 0.25s;
+        }
+
+        .btn-start:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: var(--text);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(148,163,184,0.15);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+            color: var(--accent);
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 60px 10%;
+            background: var(--bg-soft);
+            border-top: 1px solid rgba(148,163,184,0.15);
+        }
+
+        .about h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 25px;
+            color: var(--text);
+        }
+
+        .about p {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-soft);
+            color: var(--muted);
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(148,163,184,0.15);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="download-2025-11-28T03_26_18.jpg" alt="VisiTrack Logo">
+            <span>VisiTrack</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="adminpage" class="btn-login">Login</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+        <div class="hero-text">
+            <h1>Welcome to <span>VisiTrack</span></h1>
+            <p>Your smart and secure visitor management solution for offices, schools, organizations and more.</p>
+            <a href="#" class="btn-start">Get Started</a>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="features">
+        <h2>Our Key Features</h2>
+
+        <div class="feature-grid">
+
+            <div class="card">
+                <h3>📝 Visitor Registration</h3>
+                <p>Easy and fast check-in with digital visitor forms.</p>
+            </div>
+
+            <div class="card">
+                <h3>🎫 ID Badge Generator</h3>
+                <p>Instant visitor badge creation for secure access.</p>
+            </div>
+
+            <div class="card">
+                <h3>📊 Real-Time Dashboard</h3>
+                <p>Track all visitors and monitor activities instantly.</p>
+            </div>
+
+            <div class="card">
+                <h3>🔐 Secure Access Logs</h3>
+                <p>Complete security tracking with time-stamped logs.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <h2>About VisiTrack</h2>
+        <p>
+           VisiTrack is an advanced visitor management system designed to streamline how organizations handle and monitor guests. 
+           It brings a modern, secure and efficient solution to visitor management with real-time tracking, digital check-ins, and automated ba
