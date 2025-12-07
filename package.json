@@ -1,0 +1,21 @@
+{
+  "name": "menu-ordering-system",
+  "version": "1.0.0",
+  "description": "Field Project 1.Gajendra 2.Shravan 3.Aamna 4.Faizan",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeNQuest/Menu-ordering-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/codeNQuest/Menu-ordering-system/issues"
+  },
+  "homepage": "https://github.com/codeNQuest/Menu-ordering-system#readme"
+}
