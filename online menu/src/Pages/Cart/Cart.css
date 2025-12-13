@@ -1,0 +1,130 @@
+/* full-page center */
+body {
+  background: #f5e6b1; /* optional: match site bg */
+}
+
+.cart-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+/* apply to your existing root div */
+.cart-page > .cart-box,
+.cart-page > div {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", sans-serif;
+}
+
+/* since your root element is just <div>, target it simply */
+.cart-root {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", sans-serif;
+}
+
+/* headings */
+.cart-root h2,
+.cart-page h2 {
+  margin-bottom: 16px;
+  text-align: center;
+  color: #4a2d0a;
+}
+
+/* input + main button */
+.cart-page input,
+.cart-root input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d0c0a0;
+  font-size: 14px;
+  margin-right: 8px;
+  margin-bottom: 10px;
+}
+
+.cart-page input:focus,
+.cart-root input:focus {
+  outline: none;
+  border-color: #d37d3f;
+  box-shadow: 0 0 0 2px rgba(211, 125, 63, 0.25);
+}
+
+.cart-page > div > button:first-of-type,
+.cart-root > button:first-of-type {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #d37d3f;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* list items */
+.cart-page > div > div,
+.cart-root > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #fff8e6;
+}
+
+/* edit/delete buttons inside items */
+.cart-page > div > div button,
+.cart-root > div button {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+.cart-page > div > div button:nth-child(2),
+.cart-root > div button:nth-child(2) {
+  background: #ffc85a; /* Edit */
+}
+
+.cart-page > div > div button:nth-child(3),
+.cart-root > div button:nth-child(3) {
+  background: #ff6b6b; /* Delete */
+  color: #fff;
+}
+
+/* mobile */
+@media (max-width: 480px) {
+  .cart-root,
+  .cart-page > .cart-box,
+  .cart-page > div {
+    padding: 20px 18px;
+  }
+
+  .cart-page input,
+  .cart-root input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+
+  .cart-page > div > button:first-of-type,
+  .cart-root > button:first-of-type {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
