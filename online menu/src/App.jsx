@@ -1,34 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
 import './App.css'
+import Image from './assets/photo.jpg'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      {/* Navbar */}
+      <div className="navbar">
+        <div className="logo">
+          <i className="fa-solid fa-utensils"></i>
+          <span>RESTAURANT</span>
+        </div>
+
+        <div className="menu">
+          <a href="#">Home</a>
+          <a href="#">Menu</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      {/* Hero card */}
+      <div className="card-container">
+        <img
+          src={Image}
+          className="card-image"
+          alt="Food"
+        />
+
+        <div className="card-content">
+          <h1>
+            Welcome to
+            <br />
+            Delicious Bites!
+          </h1>
+
+          <div className="buttons">
+            <button className="order">Order Now</button>
+            <button className="menu-btn">View Menu</button>
+            <button className="reserve">Reserve a Table</button>
+          </div>
+          <br />
+          <div id="offer">
+            <h2>Special Offer!</h2>
+            <p>
+              Get 60% off on your first order. Use code:
+              <b> FIRST20 </b>
+              at checkout.
+            </p>
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+      {/* Footer */}
+      <div id="footer">
+        <footer>
+          <b>About Us</b>
+          <br />
+          We are passionate about delivering the best dining experience,
+          with delicious food and exceptional service.
+          <div id="contact">
+            <a href="#">Contact</a>
+            <a href="#">Social</a>
+            <a href="#">Terms</a>
+            <a href="#">Help</a>
+          </div>
+        </footer>
+      </div>
+    </div>
   )
 }
 
