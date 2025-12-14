@@ -1,29 +1,19 @@
+// src/App.jsx
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, useLocation} from "react-router-dom";
 import "./App.css";
 import Image from "./assets/photo.jpg";
 import AdminPage from "./Pages/admin/AdminPage.jsx";
 import AdminLogin from "./Pages/admin/AdminLogin.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
+import Navbar from "./components/navbar.jsx";
 
 function HomePage() {
+
+
+
   return (
-    
     <div className="app">
-      <nav className="navbar">
-        <div className="logo">
-          <span className="logo-icon">🍽</span>
-          <span>ASHISH FAST FOOD</span>
-        </div>
-
-        <ul className="nav-links">
-          <li><a href="#home">Home</a></li>
-          
-          <li><Link to="./Cart">contact</Link></li>
-          <li><Link to="./admin/AdminLogin">Login</Link></li>
-        </ul>
-      </nav>
-
       <section id="home" className="hero">
         <div className="hero-text">
           <h1>
@@ -37,7 +27,7 @@ function HomePage() {
           <div className="hero-buttons">
             <button className="btn primary">Order Now</button>
             <button className="btn secondary">View Menu</button>
-            <button className="btn outline" onClick={Cart}>Reserve a Table</button>
+            <button className="btn outline" >Reserve a Table </button>
           </div>
         </div>
 
@@ -58,7 +48,7 @@ function HomePage() {
         <p>© 2025 ASHISH FAST FOOD. All rights reserved.</p>
         <div id="contact" className="footer-contact">
           <a href="tel:+91">📞Call Us</a>
-          <a href="mailto:info@deliciousbites.com" >✉️Email</a>
+          <a href="mailto:info@deliciousbites.com">✉️Email</a>
           <a href="#l">📍Location</a>
         </div>
       </footer>
@@ -67,12 +57,20 @@ function HomePage() {
 }
 
 function App() {
+  const location = useLocation();
+  const hideNavbar = location.pathname.startsWith("/Cart") || location.pathname.startsWith("/admin");
+
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/admin/AdminLogin" element={<AdminLogin/>} />
-      <Route path="/Cart" element={<Cart />} />
-    </Routes>
+    <>
+      {!hideNavbar && <Navbar />}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/AdminLogin" element={<AdminLogin/>} />
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/Cart" element={<Cart />} />
+      </Routes>
+    </>
   );
 }
 
