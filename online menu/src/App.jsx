@@ -8,19 +8,19 @@ import Cart from "./Pages/Cart/Cart.jsx";
 
 function HomePage() {
   return (
+    
     <div className="app">
       <nav className="navbar">
         <div className="logo">
           <span className="logo-icon">🍽</span>
-          <span>Delicious Bites</span>
+          <span>ASHISH FAST FOOD</span>
         </div>
 
         <ul className="nav-links">
           <li><a href="#home">Home</a></li>
-          <li><a href="#menu">Menu</a></li>
           
           <li><Link to="./Cart">contact</Link></li>
-          <li><Link to="./admin/AdminLogin">login</Link></li>
+          <li><Link to="./admin/AdminLogin">Login</Link></li>
         </ul>
       </nav>
 
@@ -55,11 +55,11 @@ function HomePage() {
       </section>
 
       <footer className="footer">
-        <p>© 2025 Delicious Bites. All rights reserved.</p>
+        <p>© 2025 ASHISH FAST FOOD. All rights reserved.</p>
         <div id="contact" className="footer-contact">
-          <a href="tel:+911234567890">Call Us</a>
-          <a href="mailto:info@deliciousbites.com">Email</a>
-          <a href="#location">Location</a>
+          <a href="tel:+91">📞Call Us</a>
+          <a href="mailto:info@deliciousbites.com" >✉️Email</a>
+          <a href="#l">📍Location</a>
         </div>
       </footer>
     </div>
