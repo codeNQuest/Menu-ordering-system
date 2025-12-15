@@ -22,7 +22,7 @@ function AdminLogin() {
           <input type="text" id="username"  placeholder="Username"name="username" className="login-input" re/><br />
           <label htmlFor="username" >Password:</label><br />
           <input  type="password" id="passwoed" placeholder="password"name="username" className="login-input"  required /><br />
-          <button type="submit" className="login-button" onClick={goToLogin}>Login</button>
+          <button type="submit" className="login-button" onClick={goToLogin} alert>Login</button>
         </div>
       </div>  
     </div>
