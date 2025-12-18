@@ -1,3 +1,19 @@
+/* App.css or AdminPage.css */
+.page.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .login-page {
   min-height: 90vh;
   display: flex;
@@ -5,6 +21,7 @@
   align-items: center;
   background: #f3cc92;
   padding: 16px;
+
 }
 
 .login-box {
@@ -15,6 +32,7 @@
   padding: 49px 28px;
   text-align: left;
   border: 1px solid rgba(240, 238, 238, 0.08);
+
 }
 .login-box h2 {
   text-align: center;
@@ -41,6 +59,12 @@
   font-size: 16px;
   cursor: pointer;
   margin-top: 16px;
+
+
+
+
+
+
 }
 .navbar-admin {
   width: 100%;
@@ -54,6 +78,11 @@
   position: sticky;
   top: 0;
   z-index: 10;
+
+
+
+
+
 }
 .logo {
   display: flex;
@@ -66,6 +95,12 @@
 
 .logo-icon {
   font-size: 20px;
+
+
+
+
+
+
 }
 .nav-links-admin {
   list-style: none;
@@ -77,5 +112,84 @@
 }
 .nav-links-admin a {
   text-decoration: none;
-  color: inherit; /* optional: makes it same color as surrounding text */
+  color: #000;
 }
+.nav-links-admin a:hover {
+  color: #4a2d0a;
+  transition: 0.5s;
+}
+.nav-links-admin a:active {
+  color: #816e6e;
+}
+
+
+
+
+
+
+
+.admin-pic {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-color: #816e6e;  
+}
+.admin-dropdown-box {
+  position: absolute;
+  top: 120%;       
+  right: 0.9%;         
+  background: white;
+  border-radius: 10px;
+  padding: 50px 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+}
+.admin-dropdown-box button {
+  
+  border: none;
+  width: 100%;
+  text-align : left;
+  padding: 9px 12px;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.admin-dropdown-box button:hover {
+  background-color: #faeea7;
+  transition: 0.5s;
+}
+
+.admin-dropdown-box button:active {
+  background-color: #f7d494;
+}
+.admin-dropdown-box p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+.imgavatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  border: 2px solid #000;
+  border-color: #816e6e;
+  align-self: center;
+}
+
+
+
+
+
+
+
+
+

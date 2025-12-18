@@ -7,12 +7,14 @@ import AdminPage from "./Pages/admin/AdminPage.jsx";
 import AdminLogin from "./Pages/admin/AdminLogin.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
 import Navbar from "./components/navbar.jsx";
+import toast, { Toaster } from "react-hot-toast";
+import AdminSettings from "./Pages/admin/AdminSettings.jsx";
 
 function HomePage() {
 
 
-
   return (
+    <div className="page fade-in">
     <div className="app">
       <section id="home" className="hero">
         <div className="hero-text">
@@ -53,6 +55,7 @@ function HomePage() {
         </div>
       </footer>
     </div>
+    </div>
   );
 }
 
@@ -63,11 +66,12 @@ function App() {
   return (
     <>
       {!hideNavbar && <Navbar />}
+      <Toaster position="top-center" reverseOrder={false} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/AdminLogin" element={<AdminLogin/>} />
-        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/AdminSettings" element={<AdminSettings />} />
+        <Route path="/login" element={<AdminLogin />} />
         <Route path="/Cart" element={<Cart />} />
       </Routes>
     </>
