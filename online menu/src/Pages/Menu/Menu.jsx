@@ -8,15 +8,15 @@ const menuItems = [
     id: 1,
     name: "Margherita Pizza",
     description: "Fresh tomatoes, mozzarella, basil, and olive oil",
-    price: 12.99,
+    price: 200.00,
     image: "/images/pizza.png", // Assuming images are in public/images
     category: "Pizza"
   },
   {
     id: 2,
-    name: "Chicken Burger",
+    name: "Burger",
     description: "Grilled chicken patty with lettuce, tomato, and mayo",
-    price: 8.99,
+    price: 80.00,
     image: "/images/burger.png",
     category: "Burgers"
   },
@@ -24,7 +24,7 @@ const menuItems = [
     id: 3,
     name: "Caesar Salad",
     description: "Crisp romaine lettuce with Caesar dressing and croutons",
-    price: 7.49,
+    price: 50.00,
     image: "/images/salad.png",
     category: "Salads"
   },
@@ -115,7 +115,7 @@ const Menu = () => {
             <img src={item.image} alt={item.name} className="menu-item-image" />
             <h3>{item.name}</h3>
             <p>{item.description}</p>
-            <p className="price">${item.price.toFixed(2)}</p>
+            <p className="price">{item.price.toFixed(2)} Rs</p>
             <div className="quantity-selector">
               <label>Qty: </label>
               <input 
