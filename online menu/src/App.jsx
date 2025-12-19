@@ -9,6 +9,7 @@ import Cart from "./Pages/Cart/Cart.jsx";
 import Navbar from "./components/navbar.jsx";
 import toast, { Toaster } from "react-hot-toast";
 import AdminSettings from "./Pages/admin/AdminSettings.jsx";
+import Menu from "./Pages/Menu/Menu.jsx";
 
 function HomePage() {
 
@@ -69,6 +70,7 @@ function App() {
       <Toaster position="top-center" reverseOrder={false} />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/Menu" element={<Menu />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/AdminSettings" element={<AdminSettings />} />
         <Route path="/login" element={<AdminLogin />} />
