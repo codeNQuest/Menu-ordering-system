@@ -1,7 +1,7 @@
 
 import React from "react";
 import "./AdminPage.css";
-import "./AdminPage.jsx"
+import "./AdminPage.jsx";
 import { Link,useNavigate} from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -12,7 +12,7 @@ function AdminLogin() {
     const navigate = useNavigate();
 
   const goToLogin = () => {
-    navigate("/admin"); 
+    navigate("/Admin"); 
   };
   return (
     <div className="page fade-in"> 
@@ -20,9 +20,9 @@ function AdminLogin() {
       <div className="login-box">
         <h2>Admin Login</h2> 
       <div className="login-form">
-          <label htmlFor="username" >Username:</label><br />
+          <label >Username:</label><br />
           <input type="text" id="username"  placeholder="Username"name="username" className="login-input" required/><br />
-          <label htmlFor="username" >Password:</label><br />
+          <label  >Password:</label><br />
           <input  type="password" id="passwoed" placeholder="password"name="username" className="login-input"  required /><br />
           <button type="submit" className="login-button" onClick={goToLogin} alert>Login</button>
         </div>

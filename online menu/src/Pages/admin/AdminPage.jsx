@@ -1,47 +1,18 @@
 
-import React, { useState } from "react";
+import React from "react";
 import "./AdminPage.css";
-import { Link } from "react-router-dom";
-import adminPic from "../../assets/avatar_food.png";
-import AdminSettings from "./AdminSettings.jsx";
-
-import {FaUser,FaStore, FaBell,FaLock,DiAptana,IoMenu,CgProfile,IoExitOutline,} from "../../icons";
+import AdminNavbar from "../../components/AdminNavbar";
 
 function AdminPage() {
-    const [showBox, setShowBox] = useState(false); 
-
-    const admin = () => {
-    setShowBox((prev) => !prev);  
-  };
   return (
-    <nav className="navbar-admin">
-      <div className="logo">
-        <span className="logo-icon">🍽</span>
-        <span>ASHISH FAST FOOD</span>
-      </div>
+    <div className="admin-root">
+      <AdminNavbar />
 
-      <ul className="nav-links-admin">
-        <li>Dashboard</li>
-        <li>
-          <Link to="/Cart"><FaStore /> Orders</Link>
-        </li>
-        <li>Menu Management</li>
-        <li>
-          <img src={adminPic} alt="admin-pic" className="admin-pic" onClick={admin} />
+      <div className="admin-content">
         
-            {showBox && (
-            <div className="admin-dropdown-box">
-              <img src={adminPic} alt="admin-pic" className="imgavatar"/>
-              <p>Admin • Ashish</p>
-              <br />
-              <button><CgProfile /> Profile</button><br />
-              <button><Link to="/AdminSettings"><DiAptana /> Settings</Link></button><br />
-              <button> <Link to="/AdminLogin"><IoExitOutline /> Logout</Link></button>
-            </div>
-          )}
-        </li>
-      </ul>
-    </nav>
+        <h1>Admin Dashboard</h1>
+      </div>
+    </div>
   );
 }
 
