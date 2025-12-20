@@ -17,16 +17,17 @@
 
 .search-input {
   padding: 10px;
-  width: 300px;
+  width: 800px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1em;
 }
 
 .menu-header {
+  height: 20px;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 30px;
   margin-bottom: 30px;
   flex-wrap: wrap;
 }
@@ -54,7 +55,7 @@
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 50px;
 }
 
 .menu-item {
