@@ -90,7 +90,6 @@ const Menu = () => {
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }
-
   return (
     <div className="menu-page">
       <header className="sticky-nav">
