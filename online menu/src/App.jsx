@@ -62,7 +62,7 @@ function HomePage() {
 
 function App() {
   const location = useLocation();
-  const hideNavbar = location.pathname.startsWith("/Cart") || location.pathname.startsWith("/admin");
+  const hideNavbar = location.pathname.startsWith("/Cart") || location.pathname.startsWith("/admin") || location.pathname === "/Menu";
 
   return (
     <>

@@ -6,50 +6,62 @@ const menuItems = [
   {
     id: 1,
     name: "Margherita Pizza",
-    description: "Fresh tomatoes, mozzarella, basil, and olive oil",
-    price: 200.00,
+    price: 199.00,
     image: "/images/pizza.png",
-    category: "Pizza"
+    category: "Pizza",
+    isVeg: true,
+    rating: 4.5,
+    isBestSeller: true
   },
   {
     id: 2,
     name: "Burger",
-    description: "Grilled chicken patty with lettuce, tomato, and mayo",
-    price: 80.00,
+    price: 89.00,
     image: "/images/burger.png",
-    category: "Burgers"
+    category: "Burgers",
+    isVeg: false,
+    rating: 4.2,
+    isBestSeller: false
   },
   {
     id: 3,
     name: "Caesar Salad",
-    description: "Crisp romaine lettuce with Caesar dressing and croutons",
-    price: 50.00,
+    price: 49.00,
     image: "/images/salad.png",
-    category: "Salads"
+    category: "Salads",
+    isVeg: true,
+    rating: 4.0,
+    isBestSeller: false
   },
   {
     id: 4,
     name: "Pasta Carbonara",
-    description: "Creamy pasta with bacon, eggs, and Parmesan cheese",
-    price: 11.99,
-    image: "/images/pasta.jpg",
-    category: "Pasta"
+    price: 299.00,
+    image: "/images/pasta.png",
+    category: "Pasta",
+    isVeg: false,
+    rating: 4.7,
+    isBestSeller: true
   },
   {
     id: 5,
     name: "Chocolate Cake",
-    description: "Rich chocolate cake with vanilla frosting",
-    price: 5.99,
-    image: "/images/cake.jpg",
-    category: "Desserts"
+    price: 599,
+    image: "/images/cake.png",
+    category: "Desserts",
+    isVeg: true,
+    rating: 4.8,
+    isBestSeller: false
   },
   {
     id: 6,
     name: "French Fries",
-    description: "Crispy golden fries with sea salt",
-    price: 4.99,
-    image: "/images/fries.jpg",
-    category: "Fries"
+    price: 70.00,
+    image: "/images/fries.png",
+    category: "Fries",
+    isVeg: true,
+    rating: 4.1,
+    isBestSeller: false
   }
 ];
 
@@ -57,18 +69,12 @@ const Menu = () => {
   const [cart, setCart] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All Items");
   const [searchTerm, setSearchTerm] = useState("");
-  const [quantities, setQuantities] = useState({});
 
   const addToCart = (item) => {
-    const quantity = quantities[item.id] || 1;
-    const cartItem = { ...item, quantity };
+    const cartItem = { ...item, quantity: 1 };
     setCart([...cart, cartItem]);
     toast.success(`${item.name} added to cart!`);
     // You can integrate with a global cart state or context here
-  };
-
-  const updateQuantity = (id, qty) => {
-    setQuantities({ ...quantities, [id]: qty });
   };
 
   // Get unique categories
@@ -86,50 +92,55 @@ const Menu = () => {
   }
 
   return (
-    <div className="menu-container">
-      <h1>Our Menu</h1>
-      <div className="search-bar">
-        <input 
-          type="text" 
-          placeholder="Search for items..." 
-          value={searchTerm} 
-          onChange={(e) => setSearchTerm(e.target.value)} 
-          className="search-input"
-        />
-      </div>
-      <div className="menu-header">
-        {categories.map(category => (
-          <button 
-            key={category} 
-            className={`category-btn ${selectedCategory === category ? 'active' : ''}`}
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-      <div className="menu-grid">
-        {filteredItems.map((item) => (
-          <div key={item.id} className="menu-item">
-            <img src={item.image} alt={item.name} className="menu-item-image" />
-            <h3>{item.name}</h3>
-            <p>{item.description}</p>
-            <p className="price">{item.price.toFixed(2)} Rs</p>
-            <div className="quantity-selector">
-              <label>Qty: </label>
-              <input 
-                type="number" 
-                min="1" 
-                value={quantities[item.id] || 1} 
-                onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)} 
-                className="quantity-input"
-              />
-            </div>
-            <button onClick={() => addToCart(item)} className="add-to-cart-btn">
-              Add to Cart
+    <div className="menu-page">
+      <header className="sticky-nav">
+        <div className="nav-logo">
+          <span className="logo-icon">🍽</span>
+          <span>Ashish Fast Food</span>
+        </div>
+        <div className="nav-search">
+          <input 
+            type="text" 
+            placeholder="Search for items..." 
+            value={searchTerm} 
+            onChange={(e) => setSearchTerm(e.target.value)} 
+            className="search-input"/>
+        </div>
+        <div className="nav-categories">
+          {categories.map(category => (
+            <button 
+              key={category} 
+              className={`category-pill ${selectedCategory === category ? 'active' : ''}`}
+              onClick={() => setSelectedCategory(category)}>
+              {category}
             </button>
-          </div>
-        ))}
+          ))}
+        </div>
+      </header>
+
+      <div className="menu-container">
+        <div className="menu-grid">
+          {filteredItems.map((item) => (
+            <div key={item.id} className="menu-item">
+              <div className="item-image-container">
+                <img src={item.image} alt={item.name} className="menu-item-image" />
+                {item.isBestSeller && <span className="best-seller">Best Seller</span>}
+                <span className="veg-icon">{item.isVeg ? '🥬' : '🍖'}</span>
+              </div>
+              <div className="item-details">
+                <h3 className="item-name">{item.name}</h3>
+                <div className="item-rating">
+                  <pan className="stars">{'★'.repeat(Math.floor(item.rating))}{'☆'.repeat(5 - Math.floor(item.rating))}</pan>
+                  <span className="rating-value">{item.rating}</span>
+                </div>
+                <p className="item-price">₹{item.price.toFixed(2)}</p>
+                <button onClick={() => addToCart(item)} className="add-to-cart-btn">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
