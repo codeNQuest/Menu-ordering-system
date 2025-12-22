@@ -1,88 +1,80 @@
 // src/App.jsx
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation} from "react-router-dom";
 import "./App.css";
-
 import Image from "./assets/photo.jpg";
-import AdminPage from "./Pages/Admin/AdminPage.jsx";
-import AdminLogin from "./Pages/Admin/AdminLogin.jsx";
+import AdminPage from "./Pages/admin/AdminPage.jsx";
+import AdminLogin from "./Pages/admin/AdminLogin.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
-import Navbar from "./components/Navbar.jsx"; // NOTE: capital N
+import Navbar from "./components/navbar.jsx";
 import toast, { Toaster } from "react-hot-toast";
-import AdminSettings from "./Pages/Admin/AdminSettings.jsx";
+import AdminSettings from "./Pages/admin/AdminSettings.jsx";
 import Menu from "./Pages/Menu/Menu.jsx";
 
 function HomePage() {
+
+
   return (
     <div className="page fade-in">
-      <div className="app">
-        <section id="home" className="hero">
-          <div className="hero-text">
-            <h1>
-              Welcome to <br /> Delicious Bites!
-            </h1>
-            <p>
-              Special Offer! Get 60% off on your first order. Use code:
-              <strong> FIRST20 </strong>
-              at checkout.
-            </p>
-            <div className="hero-buttons">
-              <button className="btn primary">Order Now</button>
-              <button className="btn secondary">View Menu</button>
-              <button className="btn outline">Reserve a Table</button>
-            </div>
-          </div>
-
-          <div className="hero-image">
-            <img src={Image} alt="Delicious food" />
-          </div>
-        </section>
-
-        <section id="offer" className="offer">
-          <h2>Today&apos;s Special Combo</h2>
+    <div className="app">
+      <section id="home" className="hero">
+        <div className="hero-text">
+          <h1>
+            Welcome to <br /> Delicious Bites!
+          </h1>
           <p>
-            Enjoy a handcrafted meal with a complimentary drink and dessert.
-            Limited time only!
+            Special Offer! Get 60% off on your first order. Use code:
+            <strong> FIRST20 </strong>
+            at checkout.
           </p>
-        </section>
-
-        <footer className="footer">
-          <p>© 2025 ASHISH FAST FOOD. All rights reserved.</p>
-          <div id="contact" className="footer-contact">
-            <a href="tel:+91">📞Call Us</a>
-            <a href="mailto:info@deliciousbites.com">✉️Email</a>
-            <a href="#l">📍Location</a>
+          <div className="hero-buttons">
+            <button className="btn primary">Order Now</button>
+            <button className="btn secondary">View Menu</button>
+            <button className="btn outline" >Reserve a Table </button>
           </div>
-        </footer>
-      </div>
+        </div>
+
+        <div className="hero-image">
+          <img src={Image} alt="Delicious food" />
+        </div>
+      </section>
+
+      <section id="offer" className="offer">
+        <h2>Today&apos;s Special Combo</h2>
+        <p>
+          Enjoy a handcrafted meal with a complimentary drink and dessert.
+          Limited time only!
+        </p>
+      </section>
+
+      <footer className="footer">
+        <p>© 2025 ASHISH FAST FOOD. All rights reserved.</p>
+        <div id="contact" className="footer-contact">
+          <a href="tel:+91">📞Call Us</a>
+          <a href="mailto:info@deliciousbites.com">✉️Email</a>
+          <a href="#l">📍Location</a>
+        </div>
+      </footer>
+    </div>
     </div>
   );
 }
 
 function App() {
   const location = useLocation();
-
-  // hide main navbar on Cart and Admin pages
-  const hideNavbar =
-    location.pathname.startsWith("/Cart") ||
-    location.pathname.startsWith("/Admin");
+  const hideNavbar = location.pathname.startsWith("/Cart") || location.pathname.startsWith("/admin") || location.pathname === "/Menu";
 
   return (
     <>
       {!hideNavbar && <Navbar />}
-
       <Toaster position="top-center" reverseOrder={false} />
-
       <Routes>
-        {/* public routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/Menu" element={<Menu />} />
-        <Route path="/Cart" element={<Cart />} />
-
-        {/* admin routes */}
-        <Route path="/Admin" element={<AdminPage />} />
+        <Route path="/admin" element={<AdminPage />} />
         <Route path="/AdminSettings" element={<AdminSettings />} />
         <Route path="/login" element={<AdminLogin />} />
+        <Route path="/Cart" element={<Cart />} />
       </Routes>
     </>
   );
