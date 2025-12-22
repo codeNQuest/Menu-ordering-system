@@ -36,7 +36,7 @@ function AdminPage() {
               <br />
               <button><CgProfile /> Profile</button><br />
               <button><Link to="/AdminSettings"><DiAptana /> Settings</Link></button><br />
-              <button> <Link to="/AdminLogin"><IoExitOutline /> Logout</Link></button>
+              <button> <Link to="/Login"><IoExitOutline /> Logout</Link></button>
             </div>
           )}
         </li>
