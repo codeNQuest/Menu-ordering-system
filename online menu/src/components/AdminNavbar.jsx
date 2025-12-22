@@ -1,10 +1,19 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { CgProfile } from "react-icons/cg";
-import { DiAptana } from "react-icons/di";
-import { IoExitOutline } from "react-icons/io5";
-import { FaStore } from "react-icons/fa";
+import {
+  FaUser,
+  FaStore,
+  FaBell,
+  FaLock,
+  DiAptana,
+  CgProfile,
+  IoExitOutline,
+  IoMenu,
+  PiHamburgerFill,
+} from "../icons";
+
+
 import adminPic from "../assets/avatar_food.png";
 
 import "../Pages/admin/AdminPage.css";
@@ -21,12 +30,14 @@ function AdminNavbar() {
         <span>ASHISH FAST FOOD</span>
       </div>
 
+
+
       <ul className="nav-links-admin">
         <li>Dashboard</li>
         <li>
           <Link to="/Cart"><FaStore /> Orders</Link>
         </li>
-        <li>Menu Management</li>
+        <li><PiHamburgerFill/>Menu</li>
         <li>
           <img
             src={adminPic}
