@@ -2,14 +2,13 @@ import { useState } from "react";
 import './Menu.css';
 import toast from 'react-hot-toast';
 
-// Constants for menu data
 const menuItems = [
   {
     id: 1,
     name: "Margherita Pizza",
     description: "Fresh tomatoes, mozzarella, basil, and olive oil",
     price: 200.00,
-    image: "/images/pizza.png", // Assuming images are in public/images
+    image: "/images/pizza.png",
     category: "Pizza"
   },
   {
