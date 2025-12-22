@@ -69,17 +69,20 @@
 
 }
 .navbar-admin {
-  width: 100%;
-  border: 1px solid #000;
+    width: 100%;
+ 
   background: #f3cc92;
+  
+  box-shadow: 50px;
   padding: 16px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 10px;
+  border-radius: 1px;
   position: sticky;
   top: 0;
   z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 
 
 
@@ -230,6 +233,7 @@
   .logo {
     font-size: 13px;
     gap: 4px;
+
   }
 
   .logo-icon {
@@ -237,10 +241,11 @@
   }
 
   .nav-links-admin {
-    gap: 8px;
-    
-    font-size: 12px;
-    flex-wrap: nowrap;
+    gap: 12px;
+    font-size: 11px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    justify-content: flex-end;
   }
 
   .admin-pic {
@@ -274,6 +279,7 @@
   .nav-links-admin {
     gap: 6px;
     font-size: 10px;
+    justify-content: center;
   }
 
   .login-box {
