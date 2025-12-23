@@ -6,8 +6,10 @@ function AdminSettings() {
   return (
     <>
       <AdminNavbar />
-      {/* rest of your settings UI here */}
+      <div>hello</div>
+    
     </>
+    
   );
 }
 
