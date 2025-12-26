@@ -33,7 +33,9 @@ function AdminNavbar() {
 
 
       <ul className="nav-links-admin">
-        <li>Dashboard</li>
+        <li>
+          <Link to="/admin"> dashboard </Link>
+        </li>
         <li>
           <Link to="/Cart"><FaStore /> Orders</Link>
         </li>

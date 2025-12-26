@@ -1,7 +1,7 @@
 
 import React from "react";
 import "./AdminPage.css";
-import "./AdminPage.jsx";
+
 import { Link,useNavigate} from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 

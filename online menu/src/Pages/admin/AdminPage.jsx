@@ -1,5 +1,17 @@
 import React from "react";
-import {FaRupeeSign} from "../icons";
+import {
+  FaUser,
+  FaStore,
+  FaBell,
+  FaLock,
+  DiAptana,
+  CgProfile,
+  IoExitOutline,
+  IoMenu,
+  PiHamburgerFill,
+  FaRupeeSign
+} from "../../icons.js";
+
 import "./AdminPage.css";
 import AdminNavbar from "../../components/AdminNavbar.jsx";
 
