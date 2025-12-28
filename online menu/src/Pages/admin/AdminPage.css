@@ -350,7 +350,45 @@ transition: background-color 0.2s ease;
   color: #c2bfbc;
   
 }
+.setting-simple{
+  max-width: 4000px;
+  margin: 40px 30px 0;
+  background: rgb(252, 252, 238);
+  border-radius: 20px;
+  border: 1px solid rgba(240, 238, 238, 0.08);
+   
+  gap: 12px;
+}
+.setting-simple button{
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(247, 180, 132);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
 
+.form-row1 {
+  display: flex;
+  flex-direction: row; 
+  gap: px;
+}
+.form-row1 input{
+  padding: 5px 30px;
+  border-radius: 20px;
+  border: 1px so;
+}
+
+
+.form-row2 {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+.form-row2 input{
+  padding: 5px 30px;
+  border-radius: 20px;
+  border: 1px so;
+}
 
 
 

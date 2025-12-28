@@ -18,16 +18,27 @@ function AdminSettings() {
        </div>
       </div>
         <div className="setting-simple">
-            <p>Restaurant name</p>
-            <input type="text" placeholder="Ashish Food Hub" />
-            <p>Phone</p>
-            <input type="text" placeholder="+91 98765 43210" />
+
+        <div className="form-row1">
+         <label>Restaurant name</label>
+          <input type="text" />
+        </div>
+
+        <div className="form-row2">
+          <label>Phone</label>
+          <input type="text" />
+        </div>
+      
+        <button>Save Changes</button>
+    </div>
+
+            
           </div>
 
           
           
 
-      </div>
+      
     
     </>
     
