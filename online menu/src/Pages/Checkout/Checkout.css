@@ -1,0 +1,151 @@
+
+
+
+
+
+.cpage {
+  min-height: 100vh;
+  padding: 40px;
+}
+
+
+
+
+.hero-card {
+  display: flex;
+  gap: 40px;
+  background-color: #fff4dd;
+  border-radius: 24px;
+  padding: 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  flex-wrap: wrap;
+}
+
+
+.hero-left {
+  flex: 1;
+  min-width: 280px;
+}
+
+.hero-left h1 {
+  font-size: 42px;
+  color: #ff7a00;
+  margin-bottom: 20px;
+}
+
+.hero-left input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.hero-left button {
+  width: 100%;
+  padding: 12px 22px;
+  border-radius: 10px;
+  background-color: #ff7a00;
+  color: white;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero-left button:hover {
+  background-color: #e66b00;
+}
+
+/* Payment Methods */
+.payment-methods {
+  margin: 20px 0;
+}
+
+.payment-methods h3 {
+  margin-bottom: 5px;
+}
+
+.payment-methods p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.payment-option {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: #fff4dd;
+  transition: all 0.3s;
+}
+
+.payment-option.active {
+  border-color: #ff7a00;
+  background-color: #ffe5cc;
+}
+
+.payment-option small {
+  display: block;
+  color: #666;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Right Section / Order Summary */
+.hero-right {
+  flex: 1;
+  min-width: 280px;
+}
+
+.hero-right h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.order-item,
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.order-total {
+  font-weight: 700;
+  border-top: 1px dashed #ccc;
+  padding-top: 10px;
+}
+
+/* Confirmation Screen */
+.confirmation {
+  text-align: center;
+  font-size: 18px;
+}
+
+.order-number {
+  font-size: 42px;
+  color: #ff7a00;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left,
+  .hero-right {
+    text-align: center;
+  }
+
+  .hero-left button {
+    width: 100%;
+  }
+}

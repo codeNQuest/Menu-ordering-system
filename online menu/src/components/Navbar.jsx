@@ -14,7 +14,7 @@ function Navbar() {
       <ul className="nav-links">
         <li><NavLink to="/" end className="nav-link">Home</NavLink></li>
         <li><NavLink to="/Menu" className="nav-link">Menu</NavLink></li>
-        <li><NavLink to="/About" className="nav-link">About</NavLink></li>
+        <li><NavLink to="/about" className="nav-link">About</NavLink></li>
         <li><NavLink to="/login" className="nav-link">Login</NavLink></li>
         
       </ul>

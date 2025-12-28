@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Cart.css";
+import{FaShoppingCart } from "../../icons"
 function cart() {
   const [items, setItems] = useState([]);     // list
   const [text, setText] = useState("");       // input
@@ -41,7 +42,7 @@ function cart() {
         onChange={(e) => setText(e.target.value)}
         placeholder="Enter item"
       />
-      <button onClick={addOrUpdateItem}>
+      <button onClick={addOrUpdateItem}><FaShoppingCart />
         {editIndex === null ? "Add" : "Update"}
       </button>
 

@@ -2,15 +2,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  FaUser,
   FaStore,
-  FaBell,
-  FaLock,
   DiAptana,
   CgProfile,
   IoExitOutline,
-  IoMenu,
   PiHamburgerFill,
+  MdDashboard
 } from "../icons";
 
 
@@ -34,10 +31,11 @@ function AdminNavbar() {
 
       <ul className="nav-links-admin">
         <li>
-          <Link to="/admin"> dashboard </Link>
+          <Link to="/admin"><MdDashboard />Dashboard </Link>
         </li>
+        
         <li>
-          <Link to="/Cart"><FaStore /> Orders</Link>
+          <Link to="/AdminChef"><FaStore /> Orders</Link>
         </li>
         <li><PiHamburgerFill/>Menu</li>
         <li>

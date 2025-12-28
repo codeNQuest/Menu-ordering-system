@@ -1,8 +1,8 @@
 
-export { FaUser, FaStore, FaBell, FaLock } from "react-icons/fa";
+export { FaUser, FaStore, FaBell, FaLock,FaSearch ,FaShoppingCart} from "react-icons/fa";
 export { FaRupeeSign } from "react-icons/fa";
-
+export { MdDashboard } from "react-icons/md";
 export { DiAptana } from "react-icons/di";
 export { CgProfile } from "react-icons/cg";
 export{ IoExitOutline, IoMenu } from "react-icons/io5";
-export{ PiHamburgerFill } from "react-icons/pi";
+export{ PiHamburgerFill ,PiChefHatLight} from "react-icons/pi";

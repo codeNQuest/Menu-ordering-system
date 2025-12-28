@@ -1,8 +1,10 @@
 import { useState } from "react";
 import './Menu.css';
 import toast from 'react-hot-toast';
-import Navbar from "../../components/Navbar";
-
+import { FaSearch }from "../../icons.js"
+import{FaShoppingCart } from "../../icons"
+import Checkout from "../Checkout/Checkout.jsx";
+import { Link } from "react-router-dom";
 const menuItems = [
   {
     id: 1,
@@ -90,8 +92,9 @@ const Menu = () => {
             placeholder="Search for items…" 
             onChange={(e) => setSearchTerm(e.target.value)} 
             className="search-input"/>
-          <button className="search-btn">🔍</button>
+          <button className="search-btn"><FaSearch /></button>
         </div>
+        <button className="cart-btn"><Link to ="/Checkout"><FaShoppingCart /></Link></button>
       </div>
 
       <div className="categories">

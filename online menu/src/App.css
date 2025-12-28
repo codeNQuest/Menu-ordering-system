@@ -243,18 +243,14 @@
 }
 
 
-/* =========================
-   MOBILE STYLES
-   ========================= */
-
 @media (max-width: 768px) {
-  /* Make page padding smaller */
+  
   .navbar {
     padding: 10px 16px;
     border-radius: 0;
   }
 
-  /* Stack logo and links if needed */
+
   .nav-links {
     gap: 12px;
     font-size: 14px;
@@ -262,7 +258,7 @@
     justify-content: flex-end;
   }
 
-  /* Hero: stack column and shrink text */
+ 
   .hero {
     margin: 16px 12px 12px;
     padding: 20px 16px;
@@ -286,7 +282,7 @@
     max-width: 320px;
   }
 
-  /* Offer spacing */
+
   .offer {
     margin: 10px 12px 80px;
     padding: 16px 14px;
@@ -300,14 +296,13 @@
     font-size: 15px;
   }
 
-  /* Footer: stack links on small screens */
+
   .footer-contact {
     flex-direction: column;
     gap: 8px;
   }
 }
 
-/* Extra small devices */
 
 @media (max-width: 480px) {
   .nav-links {

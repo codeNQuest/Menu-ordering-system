@@ -3,7 +3,7 @@ import React from "react";
 import { Routes, Route, useLocation} from "react-router-dom";
 import "./App.css";
 import Image from "./assets/photo.jpg";
-
+import CheckoutPage from"./Pages/Checkout/Checkout.jsx";
 import AdminPage from "./Pages/Admin/AdminPage.jsx";
 import AdminLogin from "./Pages/admin/AdminLogin.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar.jsx";
 import toast, { Toaster } from "react-hot-toast";
 import AdminSettings from "./Pages/admin/AdminSettings.jsx";
 import Menu from "./Pages/Menu/Menu.jsx";
+import ChefPov from "./Pages/Chef/Chef.jsx";
 
 function HomePage() {
 
@@ -72,6 +73,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/Menu" element={<Menu />} />
+        <Route path="/AdminChef" element={<ChefPov />} />
+        <Route path="/Checkout" element={<CheckoutPage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/AdminSettings" element={<AdminSettings />} />
         <Route path="/login" element={<AdminLogin />} />
