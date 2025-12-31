@@ -5,6 +5,7 @@ import { FaSearch }from "../../icons.js"
 import{FaShoppingCart } from "../../icons"
 import Checkout from "../Checkout/Checkout.jsx";
 import { Link } from "react-router-dom";
+import { useCart } from "./MenuCart.jsx";
 const menuItems = [
   {
     id: 1,
@@ -57,16 +58,9 @@ const menuItems = [
 ];
 
 const Menu = () => {
-  const [cart, setCart] = useState([]);
+  const { addToCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState("All Items");
   const [searchTerm, setSearchTerm] = useState("");
-
-  const addToCart = (item) => {
-    const cartItem = { ...item, quantity: 1 };
-    setCart([...cart, cartItem]);
-    toast.success(`${item.name} added to cart!`);
-    // You can integrate with a global cart state or context here
-  };
 
   // Get unique categories
   const categories = ["All Items", "Pizza", "Burgers", "Salads", "Pasta", "Desserts", "Fries"];
@@ -83,7 +77,7 @@ const Menu = () => {
   }
 
   return (
-    <div className="Main">
+    
     <div className="menu-page">
       <div className="search-section">
         <div className="search-bar">
@@ -94,7 +88,7 @@ const Menu = () => {
             className="search-input"/>
           <button className="search-btn"><FaSearch /></button>
         </div>
-        <button className="cart-btn"><Link to ="/Checkout"><FaShoppingCart /></Link></button>
+        <button className="cart-btn"><Link to ="/Checkout"><FaShoppingCart  color ="Black" size={24} /></Link></button>
       </div>
 
       <div className="categories">
@@ -120,7 +114,7 @@ const Menu = () => {
                   <span className="stars">{'★'.repeat(Math.floor(item.rating))}{'☆'.repeat(5 - Math.floor(item.rating))}</span>
                   <span className="rating-value">{item.rating}</span>
                 </div>
-                <button onClick={() => addToCart(item)} className="add-to-cart-btn">
+                <button onClick={() => { addToCart(item); toast.success(`${item.name} added to cart!`); }} className="add-to-cart-btn">
                   Add to Cart
                 </button>
               </div>
@@ -128,7 +122,6 @@ const Menu = () => {
           ))}
         </div>
       </div>
-    </div>
     </div>
   );
 };

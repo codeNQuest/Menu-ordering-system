@@ -1,23 +1,16 @@
 import React, { useState } from "react";
 import "./Checkout.css";
+import { useCart } from "../Menu/MenuCart.jsx";
+import { Link } from "react-router-dom";
 
 const CheckoutPage = () => {
-  const cartItems = [
-    { id: 1, name: "Classic Cheeseburger", price: 8.99, qty: 1 },
-    { id: 2, name: "Double Deluxe Burger", price: 12.99, qty: 1 },
-    { id: 3, name: "Spicy Chicken Burger", price: 9.99, qty: 1 },
-    { id: 4, name: "Crispy Chicken Tenders", price: 7.99, qty: 1 },
-  ];
-
+  const { cart, increaseQuantity, decreaseQuantity, getTotal } = useCart();
   const [tableNumber, setTableNumber] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("counter");
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderNumber, setOrderNumber] = useState(null);
 
-  const subtotal = cartItems.reduce(
-    (total, item) => total + item.price * item.qty,
-    0
-  );
+  const subtotal = getTotal();
   const tax = parseFloat((subtotal * 0.08).toFixed(2));
   const total = parseFloat((subtotal + tax).toFixed(2));
 
@@ -38,6 +31,14 @@ const CheckoutPage = () => {
           <div className="order-number">#{orderNumber}</div>
           <p>Food will be served shortly 🍽️</p>
         </div>
+      ) : cart.length === 0 ? (
+        <div className="empty-cart">
+          <h2>No items in cart</h2>
+          <p>Start ordering food!</p>
+          <Link to="/Menu">
+            <button className="start-ordering-btn">Start Ordering</button>
+          </Link>
+        </div>
       ) : (
         <div className="hero-card">
           {/* Left Section */}
@@ -51,8 +52,7 @@ const CheckoutPage = () => {
                 type="number"
                 placeholder="Table Number"
                 value={tableNumber}
-                onChange={(e) => setTableNumber(e.target.value)}
-              />
+                onChange={(e) => setTableNumber(e.target.value)}/>
               <div className="table-placeholder">
                 {tableNumber ? `#${tableNumber}` : "#Not Set"}
               </div>
@@ -66,8 +66,7 @@ const CheckoutPage = () => {
                 className={`payment-option ${
                   paymentMethod === "counter" ? "active" : ""
                 }`}
-                onClick={() => setPaymentMethod("counter")}
-              >
+                onClick={() => setPaymentMethod("counter")}>
                 <span>Pay at Counter</span>
                 <small>Pay when you pick up your order</small>
               </div>
@@ -75,8 +74,7 @@ const CheckoutPage = () => {
                 className={`payment-option ${
                   paymentMethod === "online" ? "active" : ""
                 }`}
-                onClick={() => setPaymentMethod("online")}
-              >
+                onClick={() => setPaymentMethod("online")}>
                 <span>Pay Online</span>
                 <small>Pay now with credit/debit card</small>
               </div>
@@ -86,17 +84,21 @@ const CheckoutPage = () => {
               Place Order - ₹{total.toFixed(2)}
             </button>
           </div>
-
           {/* Right Section */}
           <div className="hero-right">
             <h3>Order Summary</h3>
-            {cartItems.map((item) => (
+            {cart.map((item) => (
               <div key={item.id} className="order-item">
                 <span>{item.name}</span>
-                <span>Qty: {item.qty}</span>
-                <span>₹{(item.price * item.qty).toFixed(2)}</span>
+                <div className="qty-controls">
+                  <button onClick={() => decreaseQuantity(item.id)}>-</button>
+                  <span>Qty: {item.quantity}</span>
+                  <button onClick={() => increaseQuantity(item.id)}>+</button>
+                </div>
+                <span>₹{(item.price * item.quantity).toFixed(2)}</span>
               </div>
             ))}
+
             <div className="order-total">
               <span>Subtotal</span>
               <span>₹{subtotal.toFixed(2)}</span>
