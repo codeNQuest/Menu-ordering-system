@@ -1,34 +1,71 @@
-
-import React from "react";
+import React, { useState } from "react";
 import "./AdminPage.css";
-
-import { Link,useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
 function AdminLogin() {
-    const handleSubmit = (e) => {
-    e.preventDefault();
-    };
-    const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const goToLogin = () => {
-    navigate("/admin"); 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("http://localhost:5000/admin/login" , {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const data = await res.json(); 
+
+    if (!res.ok) {
+      toast.error(data.message || "Login failed");
+      return;
+    }
+
+    toast.success("Login success");
+    navigate("/admin");
   };
+
   return (
-    <div className="page fade-in"> 
-    <div className="login-page">
-      <div className="login-box">
-        <h2>Admin Login</h2> 
-      <div className="login-form">
-          <label htmlFor="username" >Username:</label><br />
-          <input type="text" id="username"  placeholder="Username"name="username" className="login-input" required/><br />
-          <label htmlFor="username" >Password:</label><br />
-          <input  type="password" id="passwoed" placeholder="password"name="username" className="login-input"  required /><br />
-          <button type="submit" className="login-button" onClick={goToLogin} alert>Login</button>
+    <div className="page fade-in">
+      <Toaster />
+      <div className="login-page">
+        <div className="login-box">
+          <h2>Admin Login</h2>
+          <form className="login-form" onSubmit={handleSubmit}>
+            <label htmlFor="username">Username:</label><br />
+            <input
+              type="text"
+              id="username"
+              placeholder="Username"
+              name="username"
+              className="login-input"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            /><br />
+
+            <label htmlFor="password">Password:</label><br />
+            <input
+              type="password"
+              id="password"
+              placeholder="password"
+              name="password"
+              className="login-input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            /><br />
+
+            <button type="submit" className="login-button">
+              Login
+            </button>
+          </form>
         </div>
-      </div>  
+      </div>
     </div>
-  </div>
   );
 }
 
