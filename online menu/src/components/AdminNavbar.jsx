@@ -56,7 +56,7 @@ function AdminNavbar() {
                 <Link to="/AdminSettings"><DiAptana /> Settings</Link>
               </button><br />
               <button>
-                <Link to="/login"><IoExitOutline /> Logout</Link>
+                <Link to="/"><IoExitOutline /> Logout</Link>
               </button>
             </div>
           )}

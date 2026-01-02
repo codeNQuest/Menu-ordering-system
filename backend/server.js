@@ -9,13 +9,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// MongoDB connection (same as before)
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log('DB error:', err));
 
-// Simple protected middleware
+
 function verifyToken(req, res, next) {
   const authHeader = req.headers.authorization; // "Bearer token"
   if (!authHeader) {
@@ -63,7 +63,7 @@ app.post('/admin/login', async (req, res) => {
   }
 });
 
-// Example protected route
+
 app.get('/admin/profile', verifyToken, async (req, res) => {
   try {
     const admin = await Admin.findById(req.adminId).select('-password');

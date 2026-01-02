@@ -11,7 +11,7 @@ import toast, { Toaster } from "react-hot-toast";
 import AdminSettings from "./Pages/admin/AdminSettings.jsx";
 import Menu from "./Pages/Menu/Menu.jsx";
 import ChefPov from "./Pages/Chef/Chef.jsx";
-
+import ChangePassword  from "./Pages/admin/ChangePassword.jsx"
 
 function HomePage() {
 
@@ -79,6 +79,7 @@ function App() {
         <Route path="/AdminSettings" element={<AdminSettings />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/Cart" element={<Cart />} />
+        <Route path="/adminchangepass" element={<ChangePassword />} />
       </Routes>
    </>
   );
