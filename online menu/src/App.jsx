@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from "react";
 import { Routes, Route, useLocation} from "react-router-dom";
 import "./App.css";
@@ -12,7 +11,7 @@ import toast, { Toaster } from "react-hot-toast";
 import AdminSettings from "./Pages/admin/AdminSettings.jsx";
 import Menu from "./Pages/Menu/Menu.jsx";
 import ChefPov from "./Pages/Chef/Chef.jsx";
-import { CartProvider } from "./Pages/Menu/MenuCart.jsx";
+
 
 function HomePage() {
 
@@ -68,7 +67,7 @@ function App() {
   const hideNavbar = location.pathname.startsWith("/admin") || location.pathname.startsWith("/Admin") ;
 
   return (
-    <CartProvider>
+   <>
       {!hideNavbar && <Navbar />}
       <Toaster position="top-center" reverseOrder={false} />
       <Routes>
@@ -81,7 +80,7 @@ function App() {
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/Cart" element={<Cart />} />
       </Routes>
-    </CartProvider>
+   </>
   );
 }
 

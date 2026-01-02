@@ -1,11 +1,12 @@
+
 import { useState } from "react";
 import './Menu.css';
 import toast from 'react-hot-toast';
 import { FaSearch }from "../../icons.js"
 import{FaShoppingCart } from "../../icons"
-import Checkout from "../Checkout/Checkout.jsx";
+
 import { Link } from "react-router-dom";
-import { useCart } from "./MenuCart.jsx";
+
 const menuItems = [
   {
     id: 1,
@@ -58,7 +59,7 @@ const menuItems = [
 ];
 
 const Menu = () => {
-  const { addToCart } = useCart();
+  
   const [selectedCategory, setSelectedCategory] = useState("All Items");
   const [searchTerm, setSearchTerm] = useState("");
 

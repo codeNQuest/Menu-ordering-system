@@ -1,6 +1,7 @@
+
 import React, { useState } from "react";
 import "./Checkout.css";
-import { useCart } from "../Menu/MenuCart.jsx";
+
 import { Link } from "react-router-dom";
 
 const CheckoutPage = () => {
