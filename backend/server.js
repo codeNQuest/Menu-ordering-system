@@ -1,74 +1,77 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Admin = require('./models/Admin');
 const cors = require('cors');
-
+const jwt = require('jsonwebtoken');              // <-- NEW
+const Admin = require('./models/Admin');
 require('dotenv').config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-
+// MongoDB connection (same as before)
 mongoose
-  .connect(process.env.MONGODB_URL)  
-  .then(() => {
-    console.log('MongoDB connected');
-  })
-  .catch((err) => {
-    console.log('DB error:', err);
-  });
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch((err) => console.log('DB error:', err));
 
-
-app.get('/', (req, res) => {
-  res.send('bacened ki');
-});
-
-app.get('/admin', async (req, res) => {
-  try {
-    const admin = new Admin({
-      username: 'admin1',
-      password: '1234'
-    });
-
-    await admin.save();
-    res.send('Admin saved');
-  } catch (err) {
-    console.log(err);
-    res.status(500).send('Error saving admin');
+// Simple protected middleware
+function verifyToken(req, res, next) {
+  const authHeader = req.headers.authorization; // "Bearer token"
+  if (!authHeader) {
+    return res.status(401).json({ message: 'No token provided' });
   }
+
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);  // verify
+    req.adminId = decoded.adminId; // save id for later
+    next();
+  } catch (err) {
+    return res.status(401).json({ message: 'Invalid token' });
+  }
+}
+
+// Test route
+app.get('/', (req, res) => {
+  res.send('backend ok');
 });
 
-
-
+// Login: now returns JWT
 app.post('/admin/login', async (req, res) => {
   const { username, password } = req.body;
 
   try {
-    
     const admin = await Admin.findOne({ username, password });
 
     if (!admin) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
 
-    res.json({ message: 'Login success', adminId: admin._id });
+    // Create JWT token
+    const token = jwt.sign(
+      { adminId: admin._id },                 // payload
+      process.env.JWT_SECRET,                 // secret
+      { expiresIn: '1h' }                     // token valid for 1 hour
+    );                                        // [web:132][web:134][web:143]
+
+    res.json({ message: 'Login success', token });
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: 'Server error' });
   }
 });
 
-
-
-
-
-
-
-
-
-
-
+// Example protected route
+app.get('/admin/profile', verifyToken, async (req, res) => {
+  try {
+    const admin = await Admin.findById(req.adminId).select('-password');
+    res.json(admin);
+  } catch (err) {
+    res.status(500).json({ message: 'Error loading profile' });
+  }
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
