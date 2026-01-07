@@ -59,7 +59,7 @@ const menuItems = [
 ];
 
 const Menu = () => {
-  
+
   const [selectedCategory, setSelectedCategory] = useState("All Items");
   const [searchTerm, setSearchTerm] = useState("");
 
