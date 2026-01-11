@@ -8,10 +8,8 @@ import {
   PiHamburgerFill,
   MdDashboard
 } from "../icons";
-
 import adminPic from "../assets/avatar_food.png";
 import "../Pages/admin/AdminPage.css";
-
 function AdminNavbar() {
   const [showBox, setShowBox] = useState(false);
 
