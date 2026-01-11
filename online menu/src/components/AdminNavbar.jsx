@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
   FaStore,
   DiAptana,
@@ -10,9 +9,7 @@ import {
   MdDashboard
 } from "../icons";
 
-
 import adminPic from "../assets/avatar_food.png";
-
 import "../Pages/admin/AdminPage.css";
 
 function AdminNavbar() {
@@ -27,17 +24,13 @@ function AdminNavbar() {
         <span>ASHISH FAST FOOD</span>
       </div>
 
+       <ul className="nav-links">
+             <li><NavLink to="/admin" end className="nav-link"><MdDashboard/>Dashboard</NavLink></li>
+             <li><NavLink to="/AdminChef" className="nav-link"><PiHamburgerFill /> Order</NavLink></li>
+             <li><NavLink to="/Menu" className="nav-link"><FaStore />Menu</NavLink></li>
+             
+             
 
-
-      <ul className="nav-links-admin">
-        <li>
-          <Link to="/admin"><MdDashboard />Dashboard </Link>
-        </li>
-        
-        <li>
-          <Link to="/AdminChef"><FaStore /> Orders</Link>
-        </li>
-        <li><PiHamburgerFill/>Menu</li>
         <li>
           <img
             src={adminPic}
@@ -53,10 +46,14 @@ function AdminNavbar() {
               <br />
               <button><CgProfile /> Profile</button><br />
               <button>
-                <Link to="/AdminSettings"><DiAptana /> Settings</Link>
+                <Link to="/AdminSettings"  >
+                  <DiAptana /> Settings
+                </Link>
               </button><br />
               <button>
-                <Link to="/"><IoExitOutline /> Logout</Link>
+                <Link to="/"  >
+                  <IoExitOutline /> Logout
+                </Link>
               </button>
             </div>
           )}
