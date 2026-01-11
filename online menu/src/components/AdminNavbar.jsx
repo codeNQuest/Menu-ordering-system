@@ -25,10 +25,8 @@ function AdminNavbar() {
        <ul className="nav-links">
              <li><NavLink to="/admin" end className="nav-link"><MdDashboard/>Dashboard</NavLink></li>
              <li><NavLink to="/AdminChef" className="nav-link"><PiHamburgerFill /> Order</NavLink></li>
-             <li><NavLink to="/Menu" className="nav-link"><FaStore />Menu</NavLink></li>
+             <li><NavLink to="/Cart" className="nav-link"><FaStore />Menu</NavLink></li>
              
-             
-
         <li>
           <img
             src={adminPic}
