@@ -8,13 +8,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log('DB error:', err));
 
-// Test route
+
 app.get('/', (req, res) => {
   res.send('backend ok');
 });
@@ -38,7 +38,7 @@ app.post('/admin/login', async (req, res) => {
       username: admin.username,
     });
   } catch (err) {
-    console.error('LOGIN ERROR:', err);   // important
+    console.error('LOGIN ERROR:', err); 
     return res.status(500).json({ message: 'Server error' });
   }
 });
