@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Routes, Route, useLocation} from "react-router-dom";
 import "./App.css";
 import Image from "./assets/photo.jpg";
@@ -7,12 +7,14 @@ import AdminPage from "./Pages/Admin/AdminPage.jsx";
 import AdminLogin from "./Pages/admin/AdminLogin.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
 import Navbar from "./components/Navbar.jsx";
-import toast, { Toaster } from "react-hot-toast";
+import  { Toaster } from "react-hot-toast";
 import AdminSettings from "./Pages/admin/AdminSettings.jsx";
 import Menu from "./Pages/Menu/Menu.jsx";
 import ChefPov from "./Pages/Chef/Chef.jsx";
 import ChangePassword  from "./Pages/admin/ChangePassword.jsx"
-
+import {
+ CiLocationOn,CiMail, CiPhone 
+} from "./icons";
 function HomePage() {
 
 
@@ -32,7 +34,7 @@ function HomePage() {
           <div className="hero-buttons">
             <button className="btn primary">Order Now</button>
             <button className="btn secondary">View Menu</button>
-            <button className="btn outline" >Reserve a Table </button>
+            <button className="btn outline" >Feedback </button>
           </div>
         </div>
 
@@ -52,9 +54,9 @@ function HomePage() {
       <footer className="footer">
         <p>© 2025 ASHISH FAST FOOD. All rights reserved.</p>
         <div id="contact" className="footer-contact">
-          <a href="tel:+91">📞Call Us</a>
-          <a href="mailto:info@deliciousbites.com">✉️Email</a>
-          <a href="#l">📍Location</a>
+          <a href="tel:+91"><CiPhone/>Call Us</a>
+          <a href="mailto:info@deliciousbites.com"><CiMail/>Email</a>
+          <a href="#l"><CiLocationOn />Location</a>
         </div>
       </footer>
     </div>
