@@ -2,11 +2,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const Admin = require('./models/Admin');
-const LoginLog = require('./models/LoginLog'); // new
+const LoginLog = require('./models/LoginLog');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+
+// FIXED CORS - THIS SOLVES FRONTEND ISSUE
+app.use(cors({
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 app.use(express.json());
 
 mongoose
@@ -18,6 +24,15 @@ app.get('/', (req, res) => {
   res.send('backend ok');
 });
 
+app.get('/admin/login-logs/count', async (req, res) => {
+  try {
+    const total = await LoginLog.countDocuments(); 
+    return res.json({ total });
+  } catch (err) {
+    console.error('LOGIN LOG COUNT ERROR:', err);
+    return res.status(500).json({ message: 'Server error' });
+  }
+});
 
 app.post('/admin/login', async (req, res) => {
   const { username, password } = req.body;

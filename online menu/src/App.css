@@ -28,14 +28,14 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #f3cc92;
+  background:#C1D3A0 ;
 
 }
 
 .navbar {
   width: 100%;
  
-  background: #f3cc92;
+  background:  #eff5e4;
   
   box-shadow: 50px;
   padding: 16px 40px;
@@ -54,12 +54,13 @@
   align-items: center;
   font-size: 20px;
   font-weight: 1000;
-  color: #4a2d0a;
+  color:#d1ddd8;
   gap: 8px;
 }
 
 .logo-icon {
   font-size: 20px;
+  color: #1a6343;
 }
 
 .nav-links {
@@ -75,7 +76,7 @@
 }
 .nav-link {
   position: relative;
-  color: #3b2314;
+  color: #1a6343;
   text-decoration: none;
   padding-bottom: 4px;
   
@@ -89,7 +90,7 @@
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: #3d1e1e;
+  background-color: #ddd0d0;
   transition: width 0.4s ease;
 }
 
@@ -106,7 +107,7 @@
   max-width: 1100px;
   margin: 40px auto 20px;
   padding: 32px 40px;
-  background: #fdf3dd;
+  background:#eff5e4 ;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -120,19 +121,19 @@
 
 .hero-text h1 {
   font-size: 48px;
-  color: #4a2d0a;
+  color: #28503e;
   margin-bottom: 16px;
   line-height: 1.2;
 }
 
 .hero-text p {
   font-size: 18px;
-  color: #6b4b1a;
+  color: #e2ddd6;
   margin-bottom: 20px;
 }
 
 .hero-text strong {
-  color: #d37d3f;
+  color: #3F6F5A;
 }
 
 .hero-buttons {
@@ -158,13 +159,13 @@
 }
 
 .btn.primary {
-  background: #d37d3f;
+  background:#1a6343;
   color: #ffffff;
 }
 
 .btn.secondary {
   background: #ffffff;
-  color: #4a2d0a;
+  color: #1a6343;
 }
 
 .btn.outline {
@@ -193,8 +194,8 @@
 
 .offer {
   border-radius: 14px;
-  background-color: #fff3e0;
-  border: 2px dashed #ffa726;
+  background-color: #eff5e4;
+  border: 2px dashed  #1a6343;
   padding: 20px 30px;
   margin: 20px auto 40px;
   max-width: 700px;
@@ -216,7 +217,7 @@
 /* Footer */
 
 .footer {
-  background-color: #ecb968;
+  background-color: #d7e7b9;
   color: #030202;
   padding: 16px 20px;
   margin-top: auto;
@@ -234,7 +235,7 @@
 
 .footer-contact a {
   text-decoration: none;
-  color: #4a2d0a;
+  color: #eee4d7;
   font-weight: 500;
 }
 
