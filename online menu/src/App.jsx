@@ -13,8 +13,8 @@ import Menu from "./Pages/Menu/Menu.jsx";
 import ChefPov from "./Pages/Chef/Chef.jsx";
 import ChangePassword  from "./Pages/admin/ChangePassword.jsx"
 import {
- CiLocationOn,CiMail, CiPhone 
-} from "./icons";
+ CiLocationOn,CiMail, CiPhone,FaHome
+} from "./icons.js";
 function HomePage() {
 
 

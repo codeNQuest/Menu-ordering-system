@@ -2,7 +2,8 @@
 import React from "react";
 import { NavLink,Link } from "react-router-dom";
 import "../App.css"; // or separate Navbar.css if you prefer
-
+import { FaHome , FaStore,MdAccountCircle
+} from "../icons";
 function Navbar() {
   return (
     <nav className="navbar">
@@ -12,10 +13,10 @@ function Navbar() {
       </div>
 
       <ul className="nav-links">
-        <li><NavLink to="/" end className="nav-link">Home</NavLink></li>
-        <li><NavLink to="/Menu" className="nav-link">Menu</NavLink></li>
+        <li><NavLink to="/" end className="nav-link"><FaHome />Home</NavLink></li>
+        <li><NavLink to="/Menu" className="nav-link">< FaStore/>Menu</NavLink></li>
         <li><NavLink to="/about" className="nav-link">About</NavLink></li>
-        <li><NavLink to="/login" className="nav-link">Login</NavLink></li>
+        <li><NavLink to="/login" className="nav-link"><MdAccountCircle/>Login</NavLink></li>
         
       </ul>
     </nav>
