@@ -1,14 +1,40 @@
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
-  customerName: String,
-  customerPhone: String,
-  tableNumber: Number,
-  paymentMethod: {
+  // Customer Information
+  customerName: {
     type: String,
-    enum: ['counter', 'online'],
-    default: 'counter'
+    required: true
   },
+  customerEmail: {
+    type: String,
+    required: true
+  },
+  customerPhone: {
+    type: String,
+    required: true
+  },
+  userType: {
+    type: String,
+    enum: ['guest', 'logged-in'],
+    default: 'guest'
+  },
+  
+  // Shipping Information
+  shippingAddress: {
+    street: String,
+    city: String,
+    state: String,
+    postalCode: String,
+    country: String
+  },
+  shippingMethod: {
+    type: String,
+    enum: ['standard', 'express', 'overnight', 'pickup'],
+    default: 'standard'
+  },
+  
+  // Order Items
   items: [{
     _id: mongoose.Schema.Types.ObjectId,
     name: String,
@@ -17,19 +43,89 @@ const orderSchema = new mongoose.Schema({
     category: String,
     image: String
   }],
-  subtotal: Number,
-  tax: Number,
-  total: Number,
-  status: {
+  
+  // Price Information
+  subtotal: {
+    type: Number,
+    required: true
+  },
+  tax: {
+    type: Number,
+    required: true
+  },
+  discount: {
+    type: Number,
+    default: 0
+  },
+  discountCode: {
     type: String,
-    enum: ['pending', 'preparing', 'ready', 'completed', 'cancelled'],
+    default: null
+  },
+  shippingCost: {
+    type: Number,
+    default: 0
+  },
+  total: {
+    type: Number,
+    required: true
+  },
+  
+  // Payment Information
+  paymentMethod: {
+    type: String,
+    enum: ['credit-card', 'debit-card', 'upi', 'net-banking', 'cod'],
+    default: 'credit-card'
+  },
+  paymentStatus: {
+    type: String,
+    enum: ['pending', 'completed', 'failed', 'refunded'],
     default: 'pending'
   },
+  transactionId: {
+    type: String,
+    default: null
+  },
+  
+  // Order Status
+  status: {
+    type: String,
+    enum: ['pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled', 'refunded'],
+    default: 'pending'
+  },
+  
+  // Timestamps
   createdAt: {
     type: Date,
     default: Date.now
   },
-  completedAt: Date
+  updatedAt: {
+    type: Date,
+    default: Date.now
+  },
+  completedAt: {
+    type: Date,
+    default: null
+  },
+  cancelledAt: {
+    type: Date,
+    default: null
+  },
+  
+  // Additional Info
+  notes: {
+    type: String,
+    default: null
+  },
+  trackingNumber: {
+    type: String,
+    default: null
+  }
+});
+
+// Update the updatedAt timestamp before saving
+orderSchema.pre('save', function(next) {
+  this.updatedAt = Date.now();
+  next();
 });
 
 module.exports = mongoose.model('Order', orderSchema);
