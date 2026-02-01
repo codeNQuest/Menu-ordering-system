@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Checkout.css";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
+import Invoice from './Invoice.jsx';
 
 const CheckoutPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -12,8 +13,6 @@ const CheckoutPage = () => {
   const [customerName, setCustomerName] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
-
-
 
   // Payment state
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
@@ -26,6 +25,8 @@ const CheckoutPage = () => {
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderData, setOrderData] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  console.log('Checkout component rendered - cartItems:', cartItems.length, 'orderPlaced:', orderPlaced);
 
   // Load cart and discount from localStorage
   useEffect(() => {
@@ -152,31 +153,11 @@ const CheckoutPage = () => {
 
   // Order confirmation
   if (orderPlaced && orderData) {
+    console.log('Rendering Invoice with data:', orderData);
     return (
-      <div className="order-confirmation">
-        <div className="confirmation-card">
-          <div className="success-icon">✓</div>
-          <h1>Order Confirmed!</h1>
-          <p>Thank you for your purchase</p>
-
-          <div className="confirmation-details">
-            <p><strong>Order #:</strong> {orderData.orderNumber}</p>
-            <p><strong>Name:</strong> {orderData.customerName}</p>
-            <p><strong>Email:</strong> {orderData.customerEmail}</p>
-            <p><strong>Total:</strong> ₹{orderData.total.toFixed(2)}</p>
-            <p><strong>Status:</strong> <span className="status-badge">PENDING</span></p>
-          </div>
-
-          <div className="items-list">
-            <h3>Items Ordered:</h3>
-            {orderData.items.map((item) => (
-              <div key={item._id} className="item-row">
-                <span>{item.name} x {item.quantity}</span>
-                <span>₹{(item.price * item.quantity).toFixed(2)}</span>
-              </div>
-            ))}
-          </div>
-
+      <div>
+        <Invoice orderData={orderData} />
+        <div className="confirmation-actions" style={{ textAlign: 'center', padding: '20px' }}>
           <Link to="/Menu">
             <button className="btn-primary">Continue Shopping</button>
           </Link>
@@ -190,10 +171,12 @@ const CheckoutPage = () => {
 
   // Empty cart
   if (cartItems.length === 0) {
+    console.log('Cart is empty, showing empty message');
     return (
       <div className="checkout-page">
         <div className="empty-message">
           <h2>Your cart is empty</h2>
+          <p style={{ color: '#666', marginBottom: '20px' }}>Add some items before checking out</p>
           <Link to="/Menu">
             <button className="btn-primary">Continue Shopping</button>
           </Link>

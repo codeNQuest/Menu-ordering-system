@@ -44,11 +44,21 @@ app.get('/api/menu', async (req, res) => {
 app.post('/api/orders', async (req, res) => {
   try {
     console.log('Creating order:', req.body);
-    const order = await Order.create(req.body);
+    
+    // Generate a unique order number
+    const orderNumber = Math.floor(100000 + Math.random() * 900000);
+    
+    const orderData = {
+      ...req.body,
+      orderNumber
+    };
+    
+    const order = await Order.create(orderData);
     console.log('Order created:', order._id);
     res.status(201).json({ 
       message: 'Order created successfully',
       orderId: order._id,
+      orderNumber: order.orderNumber,
       order 
     });
   } catch (err) {

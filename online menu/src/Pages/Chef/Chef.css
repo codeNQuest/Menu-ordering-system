@@ -13,14 +13,16 @@ body {
 .chef-container {
   min-height: 120vh;
   padding: 44px;
+  background: linear-gradient(135deg, #f6cf95 0%, #f9d9a3 100%);
 }
 
 /* Header */
 .chef-container h1 {
   font-size: 36px;
-  color: #555; /* Changed color */
+  color: #333;
   text-align: center;
   margin-bottom: 34px;
+  font-weight: 700;
 }
 
 /* Columns */
@@ -38,49 +40,175 @@ body {
   width: 350px;
   border-radius: 18px;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
-.column h2 {
+.column h2,
+.status-title {
   text-align: center;
   margin-bottom: 24px;
-  color: #555; /* Changed color */
+  color: #333;
+  font-weight: 600;
+  padding: 12px;
+  background: linear-gradient(135deg, #ff9800 0%, #ff7043 100%);
+  color: white;
+  border-radius: 10px;
 }
 
 /* Individual Order Card */
 .card {
   background-color: #fff;
-  padding: 12px;
-  margin-bottom: 13px;
+  padding: 16px;
+  margin-bottom: 16px;
   border-radius: 13px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #ff9800;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.card-header p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #666;
 }
 
 .card p {
   margin-bottom: 8px;
-  font-size: 15px;
+  font-size: 14px;
   color: #333;
 }
 
+.card p b {
+  color: #ff9800;
+}
+
+.items-list {
+  margin: 10px 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.items-list li {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
 /* Buttons */
-.card button {
+.chef-button {
   width: 100%;
   padding: 12px;
-  border-radius: 12px;
+  border-radius: 8px;
   border: none;
-  background-color: #ff7a00;
+  background-color: #ff9800;
   color: white;
   font-size: 14px;
   cursor: pointer;
-  transition: background 0.3s;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 10px;
 }
 
-.card button:hover {
-  background-color: #e66b00;
+.chef-button:hover {
+  background-color: #e68900;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+}
+
+.chef-button.start-cooking {
+  background-color: #4caf50;
+}
+
+.chef-button.start-cooking:hover {
+  background-color: #45a049;
+}
+
+.chef-button.mark-ready {
+  background-color: #2196f3;
+}
+
+.chef-button.mark-ready:hover {
+  background-color: #0b7dda;
 }
 
 /* Ready Status */
-.card p:last-child {
+.ready-text {
   color: #4caf50;
-  font-weight: 610;
+  font-weight: 700;
   text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  background: #e8f5e9;
+  border-radius: 8px;
+}
+
+.no-orders {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  font-style: italic;
+}
+
+/* Scrollbar styling */
+.column::-webkit-scrollbar {
+  width: 8px;
+}
+
+.column::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.column::-webkit-scrollbar-thumb {
+  background: #ff9800;
+  border-radius: 10px;
+}
+
+.column::-webkit-scrollbar-thumb:hover {
+  background: #e68900;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .chef-container {
+    padding: 20px;
+  }
+
+  .chef-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .column {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .card {
+    padding: 12px;
+  }
 }

@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
+  // Order Number
+  orderNumber: {
+    type: Number,
+    unique: true,
+    sparse: true
+  },
+
   // Customer Information
   customerName: {
     type: String,
@@ -125,7 +132,7 @@ const orderSchema = new mongoose.Schema({
 // Update the updatedAt timestamp before saving
 orderSchema.pre('save', function(next) {
   this.updatedAt = Date.now();
-  next();
+  
 });
 
 module.exports = mongoose.model('Order', orderSchema);
