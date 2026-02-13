@@ -1,5 +1,5 @@
 /*abc*/
-import { Routes, Route, useLocation} from "react-router-dom";
+import { Routes, Route, useLocation,Link} from "react-router-dom";
 import "./App.css";
 import Image from "./assets/photo.jpg";
 import CheckoutPage from "./Pages/Checkout/Checkout.jsx";
@@ -15,6 +15,7 @@ import ChangePassword  from "./Pages/admin/ChangePassword.jsx"
 import {
  CiLocationOn,CiMail, CiPhone,FaHome
 } from "./icons.js";
+import Feedback from "./Pages/others/feedback.jsx";
 function HomePage() {
 
 
@@ -34,7 +35,9 @@ function HomePage() {
           <div className="hero-buttons">
             <button className="btn primary">Order Now</button>
             <button className="btn secondary">View Menu</button>
-            <button className="btn outline" >Feedback </button>
+           <Link to="/feedback">
+              <button className="btn outline">Feedback</button>
+          </Link>
           </div>
         </div>
 
@@ -73,6 +76,7 @@ function App() {
       {!hideNavbar && <Navbar />}
       <Toaster position="top-center" reverseOrder={false} />
       <Routes>
+        <Route path="/feedback" element={<Feedback />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/Menu" element={<Menu />} />
         <Route path="/AdminChef" element={<ChefPov />} />
