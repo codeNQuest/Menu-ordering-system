@@ -1,7 +1,7 @@
 /*abc*/
 import { Routes, Route, useLocation,Link} from "react-router-dom";
 import "./App.css";
-import Image from "./assets/photo.jpg";
+import Image from "./assets/home.jpeg";
 import CheckoutPage from "./Pages/Checkout/Checkout.jsx";
 import AdminPage from "./Pages/Admin/AdminPage.jsx";
 import AdminLogin from "./Pages/admin/AdminLogin.jsx";
@@ -25,7 +25,7 @@ function HomePage() {
       <section id="home" className="hero">
         <div className="hero-text">
           <h1>
-            Welcome to <br /> Ashish Fast Food!
+            Welcome to <br /> Delicious Bites!
           </h1>
           <p>
             Special Offer! Get 60% off on your first order. Use code:

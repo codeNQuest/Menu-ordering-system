@@ -1,9 +1,17 @@
+/* Reset + Body Fix (prevents weird drag color) */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+html, body {
+  height: 100%;
+  background: #D62828; /* Light warm background */
+}
+
+/* Page animation */
 .page.fade-in {
   animation: fadeIn 0.4s ease-out;
 }
@@ -19,48 +27,37 @@
   }
 }
 
-
-
-
 /* Layout wrapper */
-
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background:#C1D3A0 ;
-
+  background: #FFF8F0;
 }
+
+/* ================= NAVBAR ================= */
 
 .navbar {
   width: 100%;
- 
-  background:  #eff5e4;
-  
-  box-shadow: 50px;
+  background: #D62828; /* Fast food red */
+  color: #ffffff;
   padding: 16px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 1px;
   position: sticky;
   top: 0;
   z-index: 10;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .logo {
   display: flex;
   align-items: center;
-  font-size: 20px;
-  font-weight: 1000;
-  color:#d1ddd8;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
   gap: 8px;
-}
-
-.logo-icon {
-  font-size: 20px;
-  color: #1a6343;
 }
 
 .nav-links {
@@ -69,19 +66,17 @@
   gap: 24px;
 }
 
-
-.nav-links a:hover {
-
-  color: #000;
-}
 .nav-link {
   position: relative;
-  color: #1a6343;
+  color: #ffffff;
   text-decoration: none;
   padding-bottom: 4px;
-  
+  font-weight: 500;
 }
 
+.nav-links a:hover {
+  color: #FCBF49; /* Mustard yellow */
+}
 
 .nav-link::after {
   content: "";
@@ -89,30 +84,27 @@
   left: 0;
   bottom: 0;
   width: 0;
-  height: 2px;
-  background-color: #ddd0d0;
-  transition: width 0.4s ease;
+  height: 3px;
+  background-color: #FCBF49;
+  transition: width 0.3s ease;
 }
-
 
 .nav-link.active::after {
   width: 100%;
 }
 
-
-
-
+/* ================= HERO ================= */
 
 .hero {
   max-width: 1100px;
   margin: 40px auto 20px;
   padding: 32px 40px;
-  background:#eff5e4 ;
+  background: #ffffff;
   border-radius: 20px;
   display: flex;
   align-items: center;
   gap: 32px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
 .hero-text {
@@ -121,19 +113,19 @@
 
 .hero-text h1 {
   font-size: 48px;
-  color: #28503e;
+  color: #D62828;
   margin-bottom: 16px;
   line-height: 1.2;
 }
 
 .hero-text p {
   font-size: 18px;
-  color: #e2ddd6;
+  color: #444;
   margin-bottom: 20px;
 }
 
 .hero-text strong {
-  color: #3F6F5A;
+  color: #F77F00; /* Orange */
 }
 
 .hero-buttons {
@@ -142,39 +134,53 @@
   gap: 12px;
 }
 
-/* Buttons */
+/* ================= BUTTONS ================= */
 
 .btn {
-  padding: 10px 18px;
-  border-radius: 10px;
+  padding: 12px 20px;
+  border-radius: 8px;
   border: none;
   font-size: 15px;
   cursor: pointer;
-  transition: 0.2s transform, 0.2s box-shadow, 0.2s background-color, 0.2s color;
+  font-weight: 600;
+  transition: 0.2s ease;
 }
 
 .btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .btn.primary {
-  background:#1a6343;
-  color: #ffffff;
+  background: #F77F00; /* Orange */
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #E76F00;
 }
 
 .btn.secondary {
-  background: #ffffff;
-  color: #1a6343;
+  background: #FCBF49; /* Yellow */
+  color: #2B2B2B;
+}
+
+.btn.secondary:hover {
+  background: #F4A300;
 }
 
 .btn.outline {
   background: transparent;
-  color: #4a2d0a;
-  border: 1px solid #4a2d0a;
+  color: #D62828;
+  border: 2px solid #D62828;
 }
 
-/* Hero image */
+.btn.outline:hover {
+  background: #D62828;
+  color: white;
+}
+
+/* ================= HERO IMAGE ================= */
 
 .hero-image {
   flex: 1;
@@ -185,44 +191,44 @@
 .hero-image img {
   width: 100%;
   max-width: 420px;
-  border-radius: 20px;
+  border-radius: 16px;
   object-fit: cover;
-  filter: brightness(0.95);
 }
 
-/* Offer section */
+/* ================= OFFER SECTION ================= */
 
 .offer {
   border-radius: 14px;
-  background-color: #eff5e4;
-  border: 2px dashed  #1a6343;
+  background-color: #ffffff;
+  border: 2px solid #FCBF49;
   padding: 20px 30px;
   margin: 20px auto 40px;
   max-width: 700px;
   text-align: center;
-  color: #4a2d0a;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  color: #2B2B2B;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
 .offer h2 {
   font-size: 28px;
   margin-bottom: 10px;
+  color: #D62828;
 }
 
 .offer p {
   font-size: 18px;
   line-height: 1.5;
+  color: #555;
 }
 
-/* Footer */
+/* ================= FOOTER ================= */
 
 .footer {
-  background-color: #d7e7b9;
-  color: #030202;
+  background-color: #9E2A2B; /* Dark red */
+  color: #ffffff;
   padding: 16px 20px;
   margin-top: auto;
   text-align: center;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
   font-size: 14px;
 }
 
@@ -235,22 +241,28 @@
 
 .footer-contact a {
   text-decoration: none;
-  color: #eee4d7;
+  color: #ffffff;
   font-weight: 500;
 }
 
 .footer-contact a:hover {
-  color: #000;
+  color: #FCBF49;
 }
 
+/* ================= TEXT SELECTION ================= */
+
+::selection {
+  background: #FCBF49;
+  color: #2B2B2B;
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
-  
-  .navbar {
-    padding: 10px 16px;
-    border-radius: 0;
-  }
 
+  .navbar {
+    padding: 12px 16px;
+  }
 
   .nav-links {
     gap: 12px;
@@ -259,7 +271,6 @@
     justify-content: flex-end;
   }
 
- 
   .hero {
     margin: 16px 12px 12px;
     padding: 20px 16px;
@@ -275,14 +286,9 @@
     font-size: 15px;
   }
 
-  .hero-buttons {
-    justify-content: flex-start;
-  }
-
   .hero-image img {
     max-width: 320px;
   }
-
 
   .offer {
     margin: 10px 12px 80px;
@@ -297,15 +303,14 @@
     font-size: 15px;
   }
 
-
   .footer-contact {
     flex-direction: column;
     gap: 8px;
   }
 }
 
-
 @media (max-width: 480px) {
+
   .nav-links {
     justify-content: center;
   }

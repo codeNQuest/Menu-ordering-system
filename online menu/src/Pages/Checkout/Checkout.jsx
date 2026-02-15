@@ -3,6 +3,8 @@ import "./Checkout.css";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
 import Invoice from './Invoice.jsx';
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 const CheckoutPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -121,7 +123,7 @@ const CheckoutPage = () => {
         createdAt: new Date().toISOString()
       };
 
-      const response = await fetch('http://localhost:5000/api/orders', {
+      const response = await fetch(`${API_URL}/api/orders`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderPayload)

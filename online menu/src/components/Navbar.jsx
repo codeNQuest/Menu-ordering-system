@@ -9,7 +9,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="logo">
         <span className="logo-icon">🍽</span>
-        <span className="logo">ASHISH FAST FOOD</span>
+        <span className="logo">Delicious Bites</span>
       </div>
 
       <ul className="nav-links">

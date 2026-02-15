@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import AdminNavbar from "../../components/AdminNavbar";
 import "./AdminPage.css";
 import Changepassword from "./ChangePassword";
+const API_URL = import.meta.env.VITE_API_URL;
 
 import adminPic from "../../assets/avatar_food.png";
 
@@ -12,7 +13,7 @@ function AdminSettings() {
   useEffect(() => {
     const fetchLoginCount = async () => {
       try {
-        const res = await fetch("http://localhost:5000/admin/login-logs/count");
+        const res = await fetch(`${API_URL}/admin/login-logs/count`);
         const data = await res.json();
         setLoginCount(data.total);
       } catch (err) {

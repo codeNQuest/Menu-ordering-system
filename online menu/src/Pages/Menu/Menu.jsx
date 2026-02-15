@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { FaSearch } from "../../icons.js";
 import { FaShoppingCart } from "../../icons";
 import { Link } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("All Items");
@@ -13,7 +14,8 @@ const Menu = () => {
   // Fetch menu from backend on mount
   const fetchMenu = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/menu');
+      const res = await fetch(`${API_URL}/api/menu`);
+
       console.log('Response status:', res.status, res.statusText);
       if (!res.ok) {
         const errorData = await res.json();
