@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./AdminPage.css";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-const API_URL = import.meta.env.VITE_API_URL;
-
 
 function AdminLogin() {
   const [username, setUsername] = useState("");
@@ -13,7 +11,7 @@ function AdminLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(`${API_URL}/admin/login`, {
+    const res = await fetch("http://localhost:5000/admin/login" , {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),

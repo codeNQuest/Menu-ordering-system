@@ -3,7 +3,7 @@ import { Routes, Route, useLocation,Link} from "react-router-dom";
 import "./App.css";
 import Image from "./assets/home.jpeg";
 import CheckoutPage from "./Pages/Checkout/Checkout.jsx";
-import AdminPage from "./Pages/Admin/AdminPage.jsx";
+import AdminPage from "./Pages/admin/AdminPage.jsx";
 import AdminLogin from "./Pages/admin/AdminLogin.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
 import Navbar from "./components/Navbar.jsx";

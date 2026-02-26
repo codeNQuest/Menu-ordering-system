@@ -13,7 +13,8 @@ function AdminSettings() {
   useEffect(() => {
     const fetchLoginCount = async () => {
       try {
-        const res = await fetch(`${API_URL}/admin/login-logs/count`);
+        const res = await fetch("http://localhost:5000admin/login-logs/count");
+
         const data = await res.json();
         setLoginCount(data.total);
       } catch (err) {

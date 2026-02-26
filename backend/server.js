@@ -11,11 +11,9 @@ const app = express();
 
 // FIXED CORS - THIS SOLVES FRONTEND ISSUE
 app.use(cors({
-  origin: ["http://localhost:5173","http://192.168.1.5:5173"],
+  origin: "http://localhost:5173",
   methods: ["GET", "POST", "PATCH", "DELETE"],
-  
   credentials: true
-
 }));
 app.use(express.json());
 
@@ -166,7 +164,6 @@ app.get('/admin/login-logs', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-
-app.listen(5000, '0.0.0.0', () => {
-  console.log("Server running on port 5000");
+app.listen(PORT, () => {
+  console.log('server running on', PORT);
 });

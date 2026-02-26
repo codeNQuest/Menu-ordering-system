@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Chef.css";
 import AdminNavbar from "../../components/AdminNavbar";
-const API_URL = import.meta.env.VITE_API_URL;
-
 
 const ChefPov = () => {
   const [orders, setOrders] = useState([]);
@@ -12,9 +10,7 @@ const ChefPov = () => {
   const loadOrders = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API_URL}/api/orders`);
-
-      
+      const res = await fetch("http://localhost:5000/api/orders");
       if (!res.ok) throw new Error('Failed to fetch orders');
       const data = await res.json();
       setOrders(data || []);
@@ -35,7 +31,7 @@ const ChefPov = () => {
   // Update order status in backend
   const updateStatus = async (id, newStatus) => {
     try {
-      const res = await fetch(`${API_URL}/api/orders/${id}`, {
+      const res = await fetch(`http://localhost:5000/api/orders/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: newStatus })
