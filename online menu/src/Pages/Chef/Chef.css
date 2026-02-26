@@ -51,7 +51,7 @@ body {
   color: #333;
   font-weight: 600;
   padding: 12px;
-  background: linear-gradient(135deg, #ff9800 0%, #ff7043 100%);
+  background: #ff7043;
   color: white;
   border-radius: 10px;
 }
