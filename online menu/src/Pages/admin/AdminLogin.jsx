@@ -8,25 +8,31 @@ function AdminLogin() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+ 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const res = await fetch("http://localhost:5000/admin/login" , {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
+  const res = await fetch("http://localhost:5000/admin/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password }),
+  });
 
-    const data = await res.json(); 
+  const data = await res.json();
 
-    if (!res.ok) {
-      toast.error(data.message || "Login failed");
-      return;
-    }
+  if (!res.ok) {
+    toast.error(data.message || "Login failed");
+    return;
+  }
 
-    toast.success("Login success");
-    navigate("/admin");
-  };
+  // ✅ SAVE ADMIN DATA HERE
+  localStorage.setItem("adminId", data.adminId);
+  localStorage.setItem("username", data.username);
+
+  toast.success("Login success");
+
+  navigate("/admin");
+};
 
   return (
     <div className="page fade-in">

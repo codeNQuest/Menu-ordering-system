@@ -12,7 +12,7 @@ const app = express();
 // FIXED CORS - THIS SOLVES FRONTEND ISSUE
 app.use(cors({
   origin: "http://localhost:5173",
-  methods: ["GET", "POST", "PATCH", "DELETE"],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 }));
 app.use(express.json());
@@ -25,36 +25,94 @@ mongoose
 app.get('/', (req, res) => {
   res.send('backend ok');
 });
- /* Menu Api */
+
+/* ================= MENU API ================= */
+
 app.get('/api/menu', async (req, res) => {
   try {
-    console.log('Fetching menu items from DB...');
     const menuItems = await Menu.find();
-    console.log('Found menu items:', menuItems.length);
-    console.log('Items:', menuItems);
     res.json(menuItems);
   } catch (err) {
-    console.error('MENU FETCH ERROR:', err);
-    console.error('Error stack:', err.stack);
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
-/* Orders Api */
+app.post('/api/menu', async (req, res) => {
+  try {
+    if (!req.body.name || !req.body.price || !req.body.image || !req.body.category) {
+      return res.status(400).json({ 
+        message: 'Missing required fields',
+        error: 'name, price, image, and category are required'
+      });
+    }
+
+    const menuData = {
+      name: req.body.name.trim(),
+      price: parseFloat(req.body.price),
+      category: req.body.category,
+      image: req.body.image.trim(),
+      description: req.body.description?.trim() || '',
+      rating: parseFloat(req.body.rating) || 4.5
+    };
+
+    const newItem = await Menu.create(menuData);
+
+    res.status(201).json({ 
+      message: 'Menu item added successfully',
+      item: newItem 
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+});
+
+app.put('/api/menu/:id', async (req, res) => {
+  try {
+    const updatedItem = await Menu.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    if (!updatedItem) {
+      return res.status(404).json({ message: 'Menu item not found' });
+    }
+    res.json({ 
+      message: 'Menu item updated successfully',
+      item: updatedItem 
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+});
+
+app.delete('/api/menu/:id', async (req, res) => {
+  try {
+    const deletedItem = await Menu.findByIdAndDelete(req.params.id);
+    if (!deletedItem) {
+      return res.status(404).json({ message: 'Menu item not found' });
+    }
+    res.json({ 
+      message: 'Menu item deleted successfully',
+      item: deletedItem 
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+});
+
+/* ================= ORDERS API ================= */
+
 app.post('/api/orders', async (req, res) => {
   try {
-    console.log('Creating order:', req.body);
-    
-    // Generate a unique order number
     const orderNumber = Math.floor(100000 + Math.random() * 900000);
-    
+
     const orderData = {
       ...req.body,
       orderNumber
     };
-    
+
     const order = await Order.create(orderData);
-    console.log('Order created:', order._id);
+
     res.status(201).json({ 
       message: 'Order created successfully',
       orderId: order._id,
@@ -62,23 +120,19 @@ app.post('/api/orders', async (req, res) => {
       order 
     });
   } catch (err) {
-    console.error('ORDER CREATE ERROR:', err);
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
-// Get all orders
 app.get('/api/orders', async (req, res) => {
   try {
     const orders = await Order.find().sort({ createdAt: -1 });
     res.json(orders);
   } catch (err) {
-    console.error('ORDERS FETCH ERROR:', err);
     res.status(500).json({ message: 'Server error' });
   }
 });
 
-// Get order by ID
 app.get('/api/orders/:id', async (req, res) => {
   try {
     const order = await Order.findById(req.params.id);
@@ -87,12 +141,10 @@ app.get('/api/orders/:id', async (req, res) => {
     }
     res.json(order);
   } catch (err) {
-    console.error('ORDER FETCH ERROR:', err);
     res.status(500).json({ message: 'Server error' });
   }
 });
 
-// Update order status
 app.patch('/api/orders/:id', async (req, res) => {
   try {
     const { status } = req.body;
@@ -106,34 +158,22 @@ app.patch('/api/orders/:id', async (req, res) => {
     }
     res.json(order);
   } catch (err) {
-    console.error('ORDER UPDATE ERROR:', err);
     res.status(500).json({ message: 'Server error' });
   }
 });
 
-app.get('/admin/login-logs/count', async (req, res) => {
-  try {
-    const total = await LoginLog.countDocuments(); 
-    return res.json({ total });
-  } catch (err) {
-    console.error('LOGIN LOG COUNT ERROR:', err);
-    return res.status(500).json({ message: 'Server error' });
-  }
-});
+/* ================= ADMIN LOGIN ================= */
 
 app.post('/admin/login', async (req, res) => {
   const { username, password } = req.body;
-  console.log('LOGIN BODY:', req.body);
 
   try {
     const admin = await Admin.findOne({ username, password });
-    console.log('FOUND ADMIN:', admin);
 
     if (!admin) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
 
-    // save login history
     await LoginLog.create({
       userId: admin._id,
       username: admin.username,
@@ -147,18 +187,43 @@ app.post('/admin/login', async (req, res) => {
       username: admin.username,
     });
   } catch (err) {
-    console.error('LOGIN ERROR:', err);
     return res.status(500).json({ message: 'Server error' });
   }
 });
 
-// get login history (you can later protect this with auth)
+/* ================= CHANGE PASSWORD (ADDED) ================= */
+
+app.put('/admin/change-password', async (req, res) => {
+  const { adminId, currentPassword, newPassword } = req.body;
+
+  try {
+    const admin = await Admin.findById(adminId);
+
+    if (!admin) {
+      return res.status(404).json({ message: 'Admin not found' });
+    }
+
+    if (admin.password !== currentPassword) {
+      return res.status(400).json({ message: 'Current password is incorrect' });
+    }
+
+    admin.password = newPassword;
+    await admin.save();
+
+    return res.json({ message: 'Password updated successfully' });
+
+  } catch (err) {
+    return res.status(500).json({ message: 'Server error' });
+  }
+});
+
+/* ================= LOGIN LOGS ================= */
+
 app.get('/admin/login-logs', async (req, res) => {
   try {
     const logs = await LoginLog.find().sort({ loggedInAt: -1 });
     res.json(logs);
   } catch (err) {
-    console.error('LOGIN LOGS ERROR:', err);
     res.status(500).json({ message: 'Server error' });
   }
 });

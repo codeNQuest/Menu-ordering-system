@@ -1,0 +1,163 @@
+.dashboard-page {
+  min-height: 100vh;
+  background: #1a1f2e;
+  padding: 40px 30px;
+  color: #fff;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.btn-add-item {
+  background: linear-gradient(135deg, #ff7f3f, #ff6b2c);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.btn-add-item:hover {
+  transform: translateY(-2px);
+}
+
+.dashboard-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.dashboard-chip {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: #333;
+  font-weight: 500;
+}
+
+.dashboard-chip.active {
+  background: linear-gradient(135deg, #ff7f3f, #ff6b2c);
+  color: white;
+}
+
+.dashboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dashboard-card {
+  display: flex;
+  gap: 20px;
+  background: #2a3244;
+  padding: 16px;
+  border-radius: 12px;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+}
+
+.dashboard-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.dashboard-info {
+  flex: 1;
+}
+
+.dashboard-category {
+  background: rgba(255, 127, 63, 0.2);
+  color: #ff7f3f;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+}
+
+.dashboard-price {
+  font-size: 1.4em;
+  color: #ff7f3f;
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-icon {
+  color: #3498db;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.delete-icon {
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #1f2937;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-form input,
+.modal-form textarea,
+.modal-form select {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #ff7f3f, #ff6b2c);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dashboard-loading {
+  text-align: center;
+  padding: 50px;
+}

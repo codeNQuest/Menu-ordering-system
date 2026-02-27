@@ -5,6 +5,7 @@ import Image from "./assets/home.jpeg";
 import CheckoutPage from "./Pages/Checkout/Checkout.jsx";
 import AdminPage from "./Pages/admin/AdminPage.jsx";
 import AdminLogin from "./Pages/admin/AdminLogin.jsx";
+import AdminMenu from "./Pages/admin/AdminMenu.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
 import Navbar from "./components/Navbar.jsx";
 import  { Toaster } from "react-hot-toast";
@@ -82,6 +83,7 @@ function App() {
         <Route path="/AdminChef" element={<ChefPov />} />
         <Route path="/Checkout" element={<CheckoutPage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/AdminMenu" element={<AdminMenu />} />
         <Route path="/AdminSettings" element={<AdminSettings />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/Cart" element={<Cart />} />
