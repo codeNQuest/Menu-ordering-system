@@ -8,7 +8,7 @@
 
 html, body {
   height: 100%;
-  background: #D62828; /* Light warm background */
+  background:#f79400; /* Light warm background */
 }
 
 /* Page animation */
@@ -32,14 +32,14 @@ html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #FFF8F0;
+  background:#ffffff;
 }
 
 /* ================= NAVBAR ================= */
 
 .navbar {
   width: 100%;
-  background: #D62828; /* Fast food red */
+  background: #f79400; /* Fast food red */
   color: #ffffff;
   padding: 16px 40px;
   display: flex;
@@ -50,15 +50,12 @@ html, body {
   z-index: 10;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
-
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 22px;
-  font-weight: 800;
+.navbar span{
+  font-size: larger;
   color: #ffffff;
-  gap: 8px;
 }
+
+
 
 .nav-links {
   list-style: none;
@@ -68,7 +65,7 @@ html, body {
 
 .nav-link {
   position: relative;
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
   padding-bottom: 4px;
   font-weight: 500;
@@ -99,12 +96,12 @@ html, body {
   max-width: 1100px;
   margin: 40px auto 20px;
   padding: 32px 40px;
-  background: #ffffff;
+  background: #fdfbfbcb;
   border-radius: 20px;
   display: flex;
   align-items: center;
   gap: 32px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.418);
 }
 
 .hero-text {
@@ -113,19 +110,19 @@ html, body {
 
 .hero-text h1 {
   font-size: 48px;
-  color: #D62828;
+  color: #f79400;
   margin-bottom: 16px;
   line-height: 1.2;
 }
 
 .hero-text p {
   font-size: 18px;
-  color: #444;
+  color: #000000;
   margin-bottom: 20px;
 }
 
 .hero-text strong {
-  color: #F77F00; /* Orange */
+  color: #000000; /* Orange */
 }
 
 .hero-buttons {
@@ -152,8 +149,8 @@ html, body {
 }
 
 .btn.primary {
-  background: #F77F00; /* Orange */
-  color: white;
+  background: #fc0e0e; /* Orange */
+  color: rgb(247, 241, 241);
 }
 
 .btn.primary:hover {
@@ -162,7 +159,7 @@ html, body {
 
 .btn.secondary {
   background: #FCBF49; /* Yellow */
-  color: #2B2B2B;
+  color: #f8f2f2;
 }
 
 .btn.secondary:hover {
@@ -199,20 +196,20 @@ html, body {
 
 .offer {
   border-radius: 14px;
-  background-color: #ffffff;
+  background-color: rgb(255, 255, 255);
   border: 2px solid #FCBF49;
   padding: 20px 30px;
   margin: 20px auto 40px;
   max-width: 700px;
   text-align: center;
-  color: #2B2B2B;
+  color: #f5eded;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
 .offer h2 {
   font-size: 28px;
   margin-bottom: 10px;
-  color: #D62828;
+  color: #f79400;
 }
 
 .offer p {
@@ -224,7 +221,7 @@ html, body {
 /* ================= FOOTER ================= */
 
 .footer {
-  background-color: #9E2A2B; /* Dark red */
+  background-color: #f79400; /* Dark red */
   color: #ffffff;
   padding: 16px 20px;
   margin-top: auto;

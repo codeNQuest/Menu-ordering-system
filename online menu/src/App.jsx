@@ -35,8 +35,7 @@ function HomePage() {
           </p>
           <div className="hero-buttons">
             <button className="btn primary">Order Now</button>
-            <button className="btn secondary">View Menu</button>
-           <Link to="/feedback">
+           <Link to="/">
               <button className="btn outline">Feedback</button>
           </Link>
           </div>

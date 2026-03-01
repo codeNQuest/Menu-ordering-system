@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React from "react";
 import { NavLink,Link } from "react-router-dom";
-import "../App.css"; // or separate Navbar.css if you prefer
+import "../App.css"; 
 import { FaHome , FaStore,MdAccountCircle
 } from "../icons";
 function Navbar() {

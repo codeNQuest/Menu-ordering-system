@@ -6,20 +6,20 @@
 }
 
 body {
-  background-color: #f6cf95;
+  background-color:#eaecf3;
 }
 
 /* Page Container */
 .chef-container {
   min-height: 120vh;
   padding: 44px;
-  background: linear-gradient(135deg, #f6cf95 0%, #f9d9a3 100%);
+  background: #ffffff;
 }
 
 /* Header */
 .chef-container h1 {
   font-size: 36px;
-  color: #333;
+  color: #000000;
   text-align: center;
   margin-bottom: 34px;
   font-weight: 700;
@@ -35,30 +35,32 @@ body {
 
 /* Column Cards */
 .column {
-  background-color: #fff4dd;
+  background-color: #ffffff;
   padding: 24px;
   width: 350px;
+  border:1px solid #000000;
   border-radius: 18px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.30);
   max-height: 80vh;
   overflow-y: auto;
+
 }
 
 .column h2,
 .status-title {
   text-align: center;
   margin-bottom: 24px;
-  color: #333;
+  color: #585656;
   font-weight: 600;
   padding: 12px;
-  background: #ff7043;
-  color: white;
+  background: #fc0e0e;
+  color: rgb(253, 249, 249);
   border-radius: 10px;
 }
 
 /* Individual Order Card */
 .card {
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 16px;
   margin-bottom: 16px;
   border-radius: 13px;
@@ -75,13 +77,13 @@ body {
 .card-header {
   margin-bottom: 12px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 2px solid #f0eaea;
 }
 
 .card-header p {
   margin: 4px 0;
   font-size: 13px;
-  color: #666;
+  color: #eee8e8;
 }
 
 .card p {
@@ -91,7 +93,7 @@ body {
 }
 
 .card p b {
-  color: #ff9800;
+  color: #1f1e1e;
 }
 
 .items-list {
@@ -113,7 +115,7 @@ body {
   border-radius: 8px;
   border: none;
   background-color: #ff9800;
-  color: white;
+  color: rgb(241, 238, 238);
   font-size: 14px;
   cursor: pointer;
   font-weight: 600;
@@ -128,7 +130,7 @@ body {
 }
 
 .chef-button.start-cooking {
-  background-color: #4caf50;
+  background-color: #ff7043;
 }
 
 .chef-button.start-cooking:hover {
@@ -150,7 +152,7 @@ body {
   text-align: center;
   font-size: 16px;
   padding: 10px;
-  background: #e8f5e9;
+  background: #a2a7a2;
   border-radius: 8px;
 }
 
@@ -167,17 +169,17 @@ body {
 }
 
 .column::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #2e2d2d;
   border-radius: 10px;
 }
 
 .column::-webkit-scrollbar-thumb {
-  background: #ff9800;
+  background: #acaba9;
   border-radius: 10px;
 }
 
 .column::-webkit-scrollbar-thumb:hover {
-  background: #e68900;
+  background: #70706f;
 }
 
 /* Responsive */

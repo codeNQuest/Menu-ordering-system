@@ -26,7 +26,7 @@ function AdminSettings() {
   }, []);
 
   return (
-    <>
+    <div className="allpage">
       <AdminNavbar />
       <div className="setting-box">
         <h2>setting</h2>
@@ -105,7 +105,7 @@ function AdminSettings() {
          <button className="save-button">Save Changes</button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

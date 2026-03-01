@@ -19,7 +19,7 @@ function AdminNavbar() {
     <nav className="navbar-admin">
       <div className="logo">
         <span className="logo-icon">🍽</span>
-        <span>ASHISH FAST FOOD</span>
+        <span>Delicious Bites</span>
       </div>
 
        <ul className="nav-links">

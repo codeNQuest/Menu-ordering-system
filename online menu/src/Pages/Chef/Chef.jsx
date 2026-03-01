@@ -88,7 +88,7 @@ const ChefPov = () => {
                         className="chef-button start-cooking"
                         onClick={() => updateStatus(order._id, "processing")}
                       >
-                        🍳 Start Cooking
+                        Start Cooking
                       </button>
                     )}
 
@@ -97,11 +97,11 @@ const ChefPov = () => {
                         className="chef-button mark-ready"
                         onClick={() => updateStatus(order._id, "completed")}
                       >
-                        ✅ Mark Ready
+                         Mark Ready
                       </button>
                     )}
 
-                    {status === "completed" && <p className="ready-text">✅ Ready to Serve</p>}
+                    {status === "completed" && <p className="ready-text"> Ready to Serve</p>}
                   </div>
                 ))}
 

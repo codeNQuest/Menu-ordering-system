@@ -1,8 +1,8 @@
 .dashboard-page {
   min-height: 100vh;
-  background: #1a1f2e;
+  background: #ffffff;
   padding: 40px 30px;
-  color: #fff;
+  color: #535252;
 }
 
 .dashboard-header {
@@ -13,11 +13,11 @@
 }
 
 .btn-add-item {
-  background: linear-gradient(135deg, #ff7f3f, #ff6b2c);
+  background: #fc0e0e;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
-  color: white;
+  color: rgb(0, 0, 0);
   font-weight: 600;
   cursor: pointer;
   display: flex;
@@ -48,8 +48,8 @@
 }
 
 .dashboard-chip.active {
-  background: linear-gradient(135deg, #ff7f3f, #ff6b2c);
-  color: white;
+  background: #fc0e0e;
+  color: rgb(0, 0, 0);
 }
 
 .dashboard-list {
@@ -61,7 +61,7 @@
 .dashboard-card {
   display: flex;
   gap: 20px;
-  background: #2a3244;
+  background: #f1f0f0;
   padding: 16px;
   border-radius: 12px;
   align-items: center;
@@ -85,7 +85,7 @@
 
 .dashboard-category {
   background: rgba(255, 127, 63, 0.2);
-  color: #ff7f3f;
+  color: #fc0e0e;
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 0.8em;
@@ -152,7 +152,7 @@
   border: none;
   padding: 12px;
   border-radius: 8px;
-  color: white;
+  color: rgb(148, 146, 146);
   font-weight: bold;
   cursor: pointer;
 }

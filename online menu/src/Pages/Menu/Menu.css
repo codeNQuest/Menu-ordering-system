@@ -13,7 +13,7 @@
 .menu-page {
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   color: #2c3e50;
 
 }
@@ -22,7 +22,7 @@
 .search-section {
   text-align: center;
   padding: 30px 20px;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
 }
 
 .search-bar {
@@ -34,7 +34,7 @@
 .search-input {
   padding: 15px 20px;
   width: 600px;
-  border: 2px solid #bdc3c7;
+  border: 2px solid #cad0d3;
   border-radius: 50px;
   font-size: 1em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -43,7 +43,7 @@
 }
 
 .search-input:focus {
-  border-color: #3498db;
+  border-color: #fc0e0e;
   box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
 }
 
@@ -91,9 +91,9 @@
 }
 
 .category-chip.active {
-  background: #3498db; /* Blue */
+  background: #fc0e0e; /* Blue */
   color: white;
-  border-color: #3498db;
+  border-color: #ffbd30;
   box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
 }
 .cart-btn{
@@ -213,7 +213,7 @@
 }
 
 .add-to-cart-btn {
-  background: #3498db; /* Blue */
+  background: #fc0e0e; /* Blue */
   color: white;
   border: none;
   padding: 12px 25px;
@@ -227,7 +227,7 @@
 }
 
 .add-to-cart-btn:hover {
-  background: #2980b9;
+  background: #fc0e0e;
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
 }
