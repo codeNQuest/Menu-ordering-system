@@ -1,0 +1,164 @@
+.about-container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 20px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.about-hero {
+  text-align: center;
+  color: #f3cc92;
+  padding: 60px 20px;
+  top: 0%;
+  background: #4a2d0a;
+}
+
+.about-hero h1 {
+  font-size: 48px;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  color: #f3cc92;
+}
+
+.about-hero p {
+  font-size: 20px;
+  margin: 0;
+  font-style: italic;
+  color: #e99415;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.about-section {
+  background: white;
+  padding: 30px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+  color: #4a2d0a;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 28px;
+  border-bottom: 3px solid #e99415;
+  padding-bottom: 10px;
+}
+
+.about-section p {
+  color: #333;
+  line-height: 1.8;
+  font-size: 16px;
+  margin: 0;
+}
+
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.values-list li {
+  color: #333;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.values-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #e99415;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.contact-info {
+  background: #f5f5f5;
+  padding: 20px;
+  border-left: 4px solid #e99415;
+  border-radius: 4px;
+}
+
+.contact-info p {
+  margin: 10px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.contact-info strong {
+  color: #4a2d0a;
+}
+
+.about-cta {
+  text-align: center;
+  padding: 60px 20px;
+  background: #4a2d0a;
+  color: white;
+  border-top: 3px solid #e99415;
+}
+
+.about-cta h2 {
+  font-size: 36px;
+  margin: 0 0 10px 0;
+  color: #f3cc92;
+}
+
+.about-cta p {
+  font-size: 18px;
+  margin: 0 0 20px 0;
+  color: #e99415;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #e99415;
+  color: #4a2d0a;
+  padding: 12px 40px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  border: 2px solid #e99415;
+}
+
+.cta-button:hover {
+  background-color: #d67f0d;
+  border-color: #d67f0d;
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 32px;
+  }
+
+  .about-hero p {
+    font-size: 16px;
+  }
+
+  .about-section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .about-section h2 {
+    font-size: 22px;
+  }
+
+  .about-cta h2 {
+    font-size: 24px;
+  }
+
+  .about-cta p {
+    font-size: 16px;
+  }
+}

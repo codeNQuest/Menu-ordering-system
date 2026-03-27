@@ -151,6 +151,7 @@ html, body {
 .btn.primary {
   background: #fc0e0e; /* Orange */
   color: rgb(247, 241, 241);
+  text-decoration: none;
 }
 
 .btn.primary:hover {
@@ -170,6 +171,7 @@ html, body {
   background: transparent;
   color: #D62828;
   border: 2px solid #D62828;
+  text-decoration: none;
 }
 
 .btn.outline:hover {

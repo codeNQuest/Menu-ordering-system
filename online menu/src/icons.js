@@ -1,5 +1,5 @@
 
-export { FaUser, FaStore, FaBell, FaLock,FaSearch ,FaShoppingCart,FaHome, FaTrash} from "react-icons/fa";
+export { FaUser, FaStore, FaBell, FaLock,FaSearch ,FaShoppingCart,FaHome, FaTrash ,FaInfoCircle} from "react-icons/fa";
 export { FaRupeeSign } from "react-icons/fa";
 export { MdDashboard, MdAccountCircle, MdEdit, MdDelete } from "react-icons/md";
 export { DiAptana } from "react-icons/di";

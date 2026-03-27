@@ -25,7 +25,7 @@ function AdminLogin() {
     return;
   }
 
-  // ✅ SAVE ADMIN DATA HERE
+
   localStorage.setItem("adminId", data.adminId);
   localStorage.setItem("username", data.username);
 

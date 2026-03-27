@@ -5,6 +5,21 @@
   padding: 40px 20px;
 }
 
+.quantity-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.quantity-controls button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .checkout-container {
   max-width: 1200px;
   margin: 0 auto;

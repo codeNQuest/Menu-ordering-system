@@ -9,19 +9,14 @@ const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("All Items");
   const [searchTerm, setSearchTerm] = useState("");
   const [menuItems, setMenuItems] = useState([]);
+  const [cartCount, setCartCount] = useState(0); // 🔥 NEW
 
-  // Fetch menu from backend on mount
+  // Fetch menu from backend
   const fetchMenu = async () => {
     try {
       const res = await fetch('http://localhost:5000/api/menu');
-      console.log('Response status:', res.status, res.statusText);
-      if (!res.ok) {
-        const errorData = await res.json();
-        console.error('Error response:', errorData);
-        throw new Error(`Network response was not ok: ${res.status} ${res.statusText}`);
-      }
+      if (!res.ok) throw new Error("Failed to fetch menu");
       const data = await res.json();
-      console.log('Fetched menu items:', data);
       setMenuItems(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error('Failed to fetch menu:', err);
@@ -29,12 +24,18 @@ const Menu = () => {
     }
   };
 
+  // Load menu + cart count
   useEffect(() => {
     fetchMenu();
+
+    const raw = localStorage.getItem('cart');
+    const cart = raw ? JSON.parse(raw) : [];
+    const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    setCartCount(total);
   }, []);
 
   const categories = ["All Items", "Pizza", "Burgers", "Salads", "Pasta", "Desserts", "Fries"];
-  
+
   let filteredItems = selectedCategory === "All Items"
     ? menuItems
     : menuItems.filter(item => item.category === selectedCategory);
@@ -45,25 +46,28 @@ const Menu = () => {
     );
   }
 
+  // Add to cart
   const addToCart = (item) => {
     try {
       const raw = localStorage.getItem('cart');
       const cart = raw ? JSON.parse(raw) : [];
-      
-      // Check if item already exists in cart - use _id from MongoDB
+
       const existingItem = cart.find(cartItem => cartItem._id === item._id);
-      
+
       if (existingItem) {
-        // Increment quantity if item exists
         existingItem.quantity = (existingItem.quantity || 1) + 1;
         toast.success(`${item.name} quantity increased!`);
       } else {
-        // Add new item with quantity 1
         cart.push({ ...item, quantity: 1 });
         toast.success(`${item.name} added to cart!`);
       }
-      
+
       localStorage.setItem('cart', JSON.stringify(cart));
+
+      // 🔥 Update cart count
+      const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+      setCartCount(total);
+
     } catch (err) {
       console.error('Failed to add to cart', err);
     }
@@ -71,18 +75,21 @@ const Menu = () => {
 
   return (
     <div className="menu-page">
+
+      {/* 🔍 Search */}
       <div className="search-section">
         <div className="search-bar">
           <input
             type="text"
             placeholder="Search for items…"
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input" />
+            className="search-input"
+          />
           <button className="search-btn"><FaSearch /></button>
         </div>
-        <button className="cart-btn"><Link to="/Checkout"><FaShoppingCart color="Black" size={24} /></Link></button>
       </div>
 
+      {/* 📂 Categories */}
       <div className="categories">
         {categories.map(category => (
           <button
@@ -94,6 +101,7 @@ const Menu = () => {
         ))}
       </div>
 
+      {/* 🍔 Menu */}
       <div className="menu-container">
         <div className="menu-grid">
           {filteredItems.length === 0 ? (
@@ -102,14 +110,23 @@ const Menu = () => {
             filteredItems.map((item) => (
               <div key={item._id} className="menu-item">
                 <img src={item.image} alt={item.name} className="menu-item-image" />
+
                 <div className="item-details">
                   <h3 className="item-name">{item.name}</h3>
                   <p className="item-price">₹{Number(item.price).toFixed(2)}</p>
+
                   <div className="item-rating">
-                    <span className="stars">{'★'.repeat(Math.floor(item.rating || 0))}{'☆'.repeat(5 - Math.floor(item.rating || 0))}</span>
+                    <span className="stars">
+                      {'★'.repeat(Math.floor(item.rating || 0))}
+                      {'☆'.repeat(5 - Math.floor(item.rating || 0))}
+                    </span>
                     <span className="rating-value">{item.rating}</span>
                   </div>
-                  <button onClick={() => addToCart(item)} className="add-to-cart-btn">
+
+                  <button
+                    onClick={() => addToCart(item)}
+                    className="add-to-cart-btn"
+                  >
                     Add to Cart
                   </button>
                 </div>
@@ -118,6 +135,16 @@ const Menu = () => {
           )}
         </div>
       </div>
+
+      
+      {cartCount > 0 && (
+        <Link to="/Checkout" className="cart-floating-btn">
+          Place order
+          <FaShoppingCart size={24} />
+         
+        </Link>
+      )}
+
     </div>
   );
 };
