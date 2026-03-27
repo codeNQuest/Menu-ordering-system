@@ -179,9 +179,9 @@ const CheckoutPage = () => {
             <div className="form-section">
               <h3>Payment Method</h3>
               <div className="payment-options">
-                <label><input type="radio" value="credit-card" checked={paymentMethod === 'credit-card'} onChange={(e) => setPaymentMethod(e.target.value)} /><span>Credit/Debit Card</span></label>
+
                 <label><input type="radio" value="upi" checked={paymentMethod === 'upi'} onChange={(e) => setPaymentMethod(e.target.value)} /><span>UPI</span></label>
-                <label><input type="radio" value="cod" checked={paymentMethod === 'cod'} onChange={(e) => setPaymentMethod(e.target.value)} /><span>Cash on Delivery</span></label>
+                <label><input type="radio" value="cod" checked={paymentMethod === 'cod'} onChange={(e) => setPaymentMethod(e.target.value)} /><span>Cash </span></label>
               </div>
             </div>
 
