@@ -26,9 +26,7 @@ function AdminMenu() {
     "Burgers",
     "Pizza",
     "Fries",
-    "Drinks",
     "Desserts",
-    "Combos",
   ];
 
   useEffect(() => {
@@ -85,7 +83,6 @@ function AdminMenu() {
       );
 
       if (!res.ok) throw new Error();
-
       toast.success(editingId ? "Item updated" : "Item added");
       setShowModal(false);
       fetchMenuItems();

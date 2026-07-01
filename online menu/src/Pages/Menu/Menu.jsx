@@ -9,7 +9,7 @@ const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("All Items");
   const [searchTerm, setSearchTerm] = useState("");
   const [menuItems, setMenuItems] = useState([]);
-  const [cartCount, setCartCount] = useState(0); // 🔥 NEW
+  const [cartCount, setCartCount] = useState(0); 
 
   // Fetch menu from backend
   const fetchMenu = async () => {
@@ -51,9 +51,7 @@ const Menu = () => {
     try {
       const raw = localStorage.getItem('cart');
       const cart = raw ? JSON.parse(raw) : [];
-
       const existingItem = cart.find(cartItem => cartItem._id === item._id);
-
       if (existingItem) {
         existingItem.quantity = (existingItem.quantity || 1) + 1;
         toast.success(`${item.name} quantity increased!`);
@@ -61,10 +59,9 @@ const Menu = () => {
         cart.push({ ...item, quantity: 1 });
         toast.success(`${item.name} added to cart!`);
       }
-
       localStorage.setItem('cart', JSON.stringify(cart));
 
-      // 🔥 Update cart count
+      //  Update cart count
       const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
       setCartCount(total);
 
@@ -76,7 +73,7 @@ const Menu = () => {
   return (
     <div className="menu-page">
 
-      {/* 🔍 Search */}
+      {/*  Search */}
       <div className="search-section">
         <div className="search-bar">
           <input
@@ -89,7 +86,7 @@ const Menu = () => {
         </div>
       </div>
 
-      {/* 📂 Categories */}
+      {/*  Categories */}
       <div className="categories">
         {categories.map(category => (
           <button
@@ -101,7 +98,7 @@ const Menu = () => {
         ))}
       </div>
 
-      {/* 🍔 Menu */}
+      {/* Menu */}
       <div className="menu-container">
         <div className="menu-grid">
           {filteredItems.length === 0 ? (

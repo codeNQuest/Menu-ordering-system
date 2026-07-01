@@ -16,10 +16,6 @@ const CheckoutPage = () => {
 
   // Payment state
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardHolder, setCardHolder] = useState("");
-  const [expiry, setExpiry] = useState("");
-  const [cvv, setCvv] = useState("");
 
   // Order state
   const [orderPlaced, setOrderPlaced] = useState(false);
@@ -43,7 +39,7 @@ const CheckoutPage = () => {
     if (savedDiscount) setAppliedDiscount(parseFloat(savedDiscount));
   }, []);
 
-  // ✅ Quantity Update (NEW)
+  // Quantity Update 
   const updateQuantity = (id, change) => {
     const updatedCart = cartItems
       .map(item => {
@@ -142,7 +138,7 @@ const CheckoutPage = () => {
         <Invoice orderData={orderData} />
         <div className="confirmation-actions" style={{ textAlign: 'center', padding: '20px' }}>
           <Link to="/Menu"><button className="btn-primary">Continue Shopping</button></Link>
-          <Link to="/"><button className="btn-secondary">Back to Home</button></Link>
+          <Link to="/"><button className="btn-primary">Back to Home</button></Link>
         </div>
       </div>
     );
@@ -195,7 +191,7 @@ const CheckoutPage = () => {
           </Link>
         </div>
 
-        {/* ✅ ORDER SUMMARY WITH YOUR CSS */}
+        {/* ORDER SUMMARY WITH YOUR CSS */}
         <div className="checkout-right">
           <h2>Order Summary</h2>
 
